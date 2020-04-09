@@ -10,6 +10,9 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwdTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -12,6 +12,8 @@
 		5B09CB05243E455C0057FCF9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B09CB04243E455C0057FCF9 /* LoginViewController.swift */; };
 		5B1DECF1243C98DD0003C276 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B1DECF0243C98DD0003C276 /* GoogleService-Info.plist */; };
 		5B1DECF3243C9AF50003C276 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B1DECF2243C9AF50003C276 /* loading.png */; };
+		5B244F3B243F41A80048833A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B244F3A243F41A80048833A /* LoginViewModel.swift */; };
+		5B244F3F243F98CE0048833A /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B244F3E243F98CE0048833A /* RemoteConfigDefaults.plist */; };
 		5B4BE21D24398FEB00A43683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE21C24398FEB00A43683 /* AppDelegate.swift */; };
 		5B4BE21F24398FEB00A43683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE21E24398FEB00A43683 /* SceneDelegate.swift */; };
 		5B4BE22124398FEB00A43683 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE22024398FEB00A43683 /* SplashViewController.swift */; };
@@ -28,6 +30,8 @@
 		5B09CB04243E455C0057FCF9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5B1DECF0243C98DD0003C276 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B1DECF2243C9AF50003C276 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
+		5B244F3A243F41A80048833A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		5B244F3E243F98CE0048833A /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		5B4BE21924398FEB00A43683 /* MyTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B4BE21C24398FEB00A43683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B4BE21E24398FEB00A43683 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				5B09CAFF243E2C590057FCF9 /* SplashViewModel.swift */,
+				5B244F3A243F41A80048833A /* LoginViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 				5B4BE22724398FEC00A43683 /* LaunchScreen.storyboard */,
 				5B4BE22524398FEC00A43683 /* Assets.xcassets */,
 				5B4BE22A24398FEC00A43683 /* Info.plist */,
+				5B244F3E243F98CE0048833A /* RemoteConfigDefaults.plist */,
 			);
 			path = MyTalk;
 			sourceTree = "<group>";
@@ -190,6 +196,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B244F3F243F98CE0048833A /* RemoteConfigDefaults.plist in Resources */,
 				5B1DECF3243C9AF50003C276 /* loading.png in Resources */,
 				5B4BE22924398FEC00A43683 /* LaunchScreen.storyboard in Resources */,
 				5B1DECF1243C98DD0003C276 /* GoogleService-Info.plist in Resources */,
@@ -253,6 +260,7 @@
 				5B4BE21F24398FEB00A43683 /* SceneDelegate.swift in Sources */,
 				5B09CB03243E2CE10057FCF9 /* AlertControllerService.swift in Sources */,
 				5B09CB00243E2C590057FCF9 /* SplashViewModel.swift in Sources */,
+				5B244F3B243F41A80048833A /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
