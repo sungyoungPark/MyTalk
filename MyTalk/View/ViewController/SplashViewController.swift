@@ -29,11 +29,11 @@ class SplashViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         else{
-            let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            loginVC.viewModel.remoteConfig = viewModel!.remoteConfig
-            loginVC.alertControllerManager = alertControllerManager
             print("건네주기")
             OperationQueue.main.addOperation {
+                let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                loginVC.viewModel.remoteConfig = self.viewModel!.remoteConfig
+                loginVC.alertControllerManager = self.alertControllerManager
                 UIApplication.shared.keyWindow?.rootViewController = loginVC
             }
         }
