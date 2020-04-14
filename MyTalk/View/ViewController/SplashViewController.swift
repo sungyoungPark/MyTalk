@@ -7,18 +7,17 @@
 //
 
 import UIKit
-import Firebase
+//import Firebase
 
 
 class SplashViewController: UIViewController {
     
     var viewModel : SplashViewModel?
-    var remoteConfig : RemoteConfig!
+    //var remoteConfig : RemoteConfig!
     let alertControllerManager = AlertControllerService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         viewModel = SplashViewModel(completion: displayWelcome)
     }
     
@@ -31,6 +30,8 @@ class SplashViewController: UIViewController {
         }
         else{
             let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            loginVC.viewModel.remoteConfig = viewModel!.remoteConfig
+            print("건네주기")
             OperationQueue.main.addOperation {
                 UIApplication.shared.keyWindow?.rootViewController = loginVC
             }

@@ -20,7 +20,6 @@ import Firebase
 //
 //}
 
-
 class SplashViewModel {
     
     var remoteConfig: RemoteConfig

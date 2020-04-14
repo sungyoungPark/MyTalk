@@ -20,6 +20,9 @@
 		5B4BE22424398FEB00A43683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B4BE22224398FEB00A43683 /* Main.storyboard */; };
 		5B4BE22624398FEC00A43683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B4BE22524398FEC00A43683 /* Assets.xcassets */; };
 		5B4BE22924398FEC00A43683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B4BE22724398FEC00A43683 /* LaunchScreen.storyboard */; };
+		5BAC90F42445F749002092C3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC90F32445F749002092C3 /* SignUpViewController.swift */; };
+		5BAC90F724461B27002092C3 /* iconfinder_list_296566.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BAC90F624461B27002092C3 /* iconfinder_list_296566.png */; };
+		5BAC90F924461C11002092C3 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC90F824461C11002092C3 /* SignUpViewModel.swift */; };
 		BC33912B2056796547275FB2 /* Pods_MyTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3E95D196398782585CBF82 /* Pods_MyTalk.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +43,9 @@
 		5B4BE22524398FEC00A43683 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B4BE22824398FEC00A43683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B4BE22A24398FEC00A43683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BAC90F32445F749002092C3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		5BAC90F624461B27002092C3 /* iconfinder_list_296566.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconfinder_list_296566.png; sourceTree = "<group>"; };
+		5BAC90F824461C11002092C3 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		AB3E95D196398782585CBF82 /* Pods_MyTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31CD358C70D1B654C6A5410 /* Pods-MyTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTalk.debug.xcconfig"; path = "Target Support Files/Pods-MyTalk/Pods-MyTalk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,9 +73,8 @@
 		5B09CAFD243DE0A70057FCF9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5BAC90FA24462225002092C3 /* ViewController */,
 				5B4BE22224398FEB00A43683 /* Main.storyboard */,
-				5B4BE22024398FEB00A43683 /* SplashViewController.swift */,
-				5B09CB04243E455C0057FCF9 /* LoginViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -79,6 +84,7 @@
 			children = (
 				5B09CAFF243E2C590057FCF9 /* SplashViewModel.swift */,
 				5B244F3A243F41A80048833A /* LoginViewModel.swift */,
+				5BAC90F824461C11002092C3 /* SignUpViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -112,10 +118,10 @@
 		5B4BE21B24398FEB00A43683 /* MyTalk */ = {
 			isa = PBXGroup;
 			children = (
+				5BAC90F524461AF1002092C3 /* Image */,
 				5B09CB01243E2CA90057FCF9 /* Service */,
 				5B09CAFE243E2C2E0057FCF9 /* View Model */,
 				5B09CAFD243DE0A70057FCF9 /* View */,
-				5B1DECF2243C9AF50003C276 /* loading.png */,
 				5B1DECF0243C98DD0003C276 /* GoogleService-Info.plist */,
 				5B4BE21C24398FEB00A43683 /* AppDelegate.swift */,
 				5B4BE21E24398FEB00A43683 /* SceneDelegate.swift */,
@@ -125,6 +131,25 @@
 				5B244F3E243F98CE0048833A /* RemoteConfigDefaults.plist */,
 			);
 			path = MyTalk;
+			sourceTree = "<group>";
+		};
+		5BAC90F524461AF1002092C3 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				5B1DECF2243C9AF50003C276 /* loading.png */,
+				5BAC90F624461B27002092C3 /* iconfinder_list_296566.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		5BAC90FA24462225002092C3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5B4BE22024398FEB00A43683 /* SplashViewController.swift */,
+				5B09CB04243E455C0057FCF9 /* LoginViewController.swift */,
+				5BAC90F32445F749002092C3 /* SignUpViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		FDB34ACBF436CCC96B80D0AA /* Pods */ = {
@@ -200,6 +225,7 @@
 				5B1DECF3243C9AF50003C276 /* loading.png in Resources */,
 				5B4BE22924398FEC00A43683 /* LaunchScreen.storyboard in Resources */,
 				5B1DECF1243C98DD0003C276 /* GoogleService-Info.plist in Resources */,
+				5BAC90F724461B27002092C3 /* iconfinder_list_296566.png in Resources */,
 				5B4BE22624398FEC00A43683 /* Assets.xcassets in Resources */,
 				5B4BE22424398FEB00A43683 /* Main.storyboard in Resources */,
 			);
@@ -256,7 +282,9 @@
 			files = (
 				5B09CB05243E455C0057FCF9 /* LoginViewController.swift in Sources */,
 				5B4BE22124398FEB00A43683 /* SplashViewController.swift in Sources */,
+				5BAC90F42445F749002092C3 /* SignUpViewController.swift in Sources */,
 				5B4BE21D24398FEB00A43683 /* AppDelegate.swift in Sources */,
+				5BAC90F924461C11002092C3 /* SignUpViewModel.swift in Sources */,
 				5B4BE21F24398FEB00A43683 /* SceneDelegate.swift in Sources */,
 				5B09CB03243E2CE10057FCF9 /* AlertControllerService.swift in Sources */,
 				5B09CB00243E2C590057FCF9 /* SplashViewModel.swift in Sources */,

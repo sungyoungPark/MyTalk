@@ -7,9 +7,17 @@
 //
 
 import Foundation
+import  Firebase
 
-
-class LoginViewModle {
+class LoginViewModel {
+    var remoteConfig: RemoteConfig?
     
     
+    init() {
+        print("login viewmodel")
+    }
+    
+//    func getCaps(){
+//        print(remoteConfig!["splash_message"].stringValue!)
+//    }
 }

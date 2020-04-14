@@ -85,6 +85,9 @@
                                 <state key="normal" title="회원가입">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Tcs-Bb-Ucw" kind="show" identifier="ShowSignUp" id="O9e-Dm-YJ6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -115,10 +118,114 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPf-3D-tiK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1040" y="103"/>
+            <point key="canvasLocation" x="909" y="108"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="h5P-FI-yTM">
+            <objects>
+                <viewController id="Tcs-Bb-Ucw" customClass="SignUpViewController" customModule="MyTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G91-MA-K42">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3lp-yM-GiT">
+                                <rect key="frame" x="8" y="243" width="398" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="jHK-fE-PWe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqZ-OC-SP3">
+                                <rect key="frame" x="8" y="313" width="398" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="shI-pM-RkL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PoY-ZY-QHG">
+                                <rect key="frame" x="8" y="388" width="398" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="CWj-ze-X6v"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VU5-go-JeN">
+                                <rect key="frame" x="8" y="479" width="398" height="35"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="IXZ-Lz-aUx"/>
+                                </constraints>
+                                <state key="normal" title="회원가입">
+                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpBtn:" destination="Tcs-Bb-Ucw" eventType="touchUpInside" id="uIl-qv-ruN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLa-Ef-4ue">
+                                <rect key="frame" x="8" y="546" width="398" height="35"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="s0X-Bb-txs"/>
+                                </constraints>
+                                <state key="normal" title="취소">
+                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelBtn:" destination="Tcs-Bb-Ucw" eventType="touchUpInside" id="QBS-2y-gL7"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signUp" translatesAutoresizingMaskIntoConstraints="NO" id="YHf-s0-2Bn">
+                                <rect key="frame" x="63" y="67" width="288" height="129.5"/>
+                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VU5-go-JeN" firstAttribute="top" secondItem="PoY-ZY-QHG" secondAttribute="bottom" constant="51" id="0Ep-gq-Ekk"/>
+                            <constraint firstItem="yqZ-OC-SP3" firstAttribute="top" secondItem="3lp-yM-GiT" secondAttribute="bottom" constant="30" id="1zn-GG-vhk"/>
+                            <constraint firstItem="Z3c-8a-tY3" firstAttribute="trailing" secondItem="gLa-Ef-4ue" secondAttribute="trailing" constant="8" id="4vi-xB-31n"/>
+                            <constraint firstItem="PoY-ZY-QHG" firstAttribute="centerX" secondItem="G91-MA-K42" secondAttribute="centerX" id="9gu-aR-1la"/>
+                            <constraint firstItem="Z3c-8a-tY3" firstAttribute="trailing" secondItem="PoY-ZY-QHG" secondAttribute="trailing" constant="8" id="AJl-2B-hZD"/>
+                            <constraint firstItem="Z3c-8a-tY3" firstAttribute="trailing" secondItem="VU5-go-JeN" secondAttribute="trailing" constant="8" id="BTJ-e3-r9M"/>
+                            <constraint firstItem="gLa-Ef-4ue" firstAttribute="top" secondItem="VU5-go-JeN" secondAttribute="bottom" constant="32" id="BY5-mj-J9z"/>
+                            <constraint firstItem="VU5-go-JeN" firstAttribute="top" secondItem="PoY-ZY-QHG" secondAttribute="bottom" constant="51" id="DWQ-No-4sm"/>
+                            <constraint firstItem="Z3c-8a-tY3" firstAttribute="trailing" secondItem="yqZ-OC-SP3" secondAttribute="trailing" constant="8" id="HvX-uX-Dw1"/>
+                            <constraint firstItem="YHf-s0-2Bn" firstAttribute="top" secondItem="Z3c-8a-tY3" secondAttribute="top" constant="67" id="IC6-r5-bWo"/>
+                            <constraint firstItem="PoY-ZY-QHG" firstAttribute="top" secondItem="yqZ-OC-SP3" secondAttribute="bottom" constant="35" id="M37-5Q-B1a"/>
+                            <constraint firstItem="PoY-ZY-QHG" firstAttribute="top" secondItem="yqZ-OC-SP3" secondAttribute="bottom" constant="35" id="NM5-PW-Fru"/>
+                            <constraint firstItem="YHf-s0-2Bn" firstAttribute="leading" secondItem="Z3c-8a-tY3" secondAttribute="leading" constant="63" id="NQ6-eK-alk"/>
+                            <constraint firstItem="yqZ-OC-SP3" firstAttribute="centerX" secondItem="G91-MA-K42" secondAttribute="centerX" id="Vte-x4-ewq"/>
+                            <constraint firstItem="Z3c-8a-tY3" firstAttribute="trailing" secondItem="3lp-yM-GiT" secondAttribute="trailing" constant="8" id="X9u-hz-mgM"/>
+                            <constraint firstItem="3lp-yM-GiT" firstAttribute="centerX" secondItem="G91-MA-K42" secondAttribute="centerX" id="XZv-hL-5jl"/>
+                            <constraint firstItem="gLa-Ef-4ue" firstAttribute="centerX" secondItem="G91-MA-K42" secondAttribute="centerX" id="b2o-Pq-q4g"/>
+                            <constraint firstItem="Z3c-8a-tY3" firstAttribute="trailing" secondItem="YHf-s0-2Bn" secondAttribute="trailing" constant="63" id="eKe-bD-2wv"/>
+                            <constraint firstItem="YHf-s0-2Bn" firstAttribute="centerX" secondItem="G91-MA-K42" secondAttribute="centerX" id="gXb-QC-Dx2"/>
+                            <constraint firstItem="yqZ-OC-SP3" firstAttribute="top" secondItem="3lp-yM-GiT" secondAttribute="bottom" constant="30" id="j4j-LC-IfI"/>
+                            <constraint firstItem="gLa-Ef-4ue" firstAttribute="top" secondItem="VU5-go-JeN" secondAttribute="bottom" constant="32" id="pB7-m1-hc0"/>
+                            <constraint firstItem="3lp-yM-GiT" firstAttribute="top" secondItem="YHf-s0-2Bn" secondAttribute="bottom" constant="46.5" id="qOn-Qo-pX7"/>
+                            <constraint firstItem="3lp-yM-GiT" firstAttribute="top" secondItem="Z3c-8a-tY3" secondAttribute="top" constant="243" id="txh-m5-RSL"/>
+                            <constraint firstItem="VU5-go-JeN" firstAttribute="centerX" secondItem="G91-MA-K42" secondAttribute="centerX" id="vdx-Cy-Uh6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Z3c-8a-tY3"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HEy-N8-WP2"/>
+                    <connections>
+                        <outlet property="email" destination="3lp-yM-GiT" id="86h-Ia-m6n"/>
+                        <outlet property="name" destination="yqZ-OC-SP3" id="WeW-35-iAj"/>
+                        <outlet property="password" destination="PoY-ZY-QHG" id="Zof-5J-WLI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nto-Ir-tHW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1863.7681159420292" y="273.88392857142856"/>
         </scene>
     </scenes>
     <resources>
         <image name="loading" width="512" height="512"/>
+        <image name="signUp" width="512" height="512"/>
     </resources>
 </document>
