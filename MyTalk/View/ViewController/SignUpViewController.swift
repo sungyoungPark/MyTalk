@@ -13,6 +13,7 @@ import Firebase
 class SignUpViewController: UIViewController {
     
     var viewModel = SignUpViewModel()
+    var alertControllerManager : AlertControllerService? = nil
     
     @IBOutlet var email: UITextField!
     @IBOutlet var name: UITextField!
@@ -23,7 +24,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpBtn(_ sender: Any) {
-       viewModel.signUpEvent(email: email.text!, password: password.text!, name: name.text!, completion: goBackLoginView)
+        viewModel.signUpEvent(email: email.text!, password: password.text!, name: name.text!, completion: goBackLoginView)
         
     }
     
@@ -32,7 +33,9 @@ class SignUpViewController: UIViewController {
     }
     
     func goBackLoginView(){
-        self.dismiss(animated: true, completion: nil)
+        let alert = alertControllerManager!.makeAlertController(title: "성공", message: "회원가입이 성공적으로 완료되었습니다.", OK_handler: {(action) -> Void in  self.dismiss(animated: true, completion: nil)})
+        self.view.backgroundColor = .gray
+        self.present(alert, animated: true, completion: nil)
     }
     
     
