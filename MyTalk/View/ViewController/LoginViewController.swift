@@ -19,10 +19,32 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func logInEvent(_ sender: Any) {
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwdTextField.text!){ (user , error) in
+            if error != nil{
+                print("login 실패")
+                
+            }
+            else{
+                Auth.auth().addStateDidChangeListener { ( auth, user ) in
+                    if user != nil {
+                        print("로그인 성공")
+                        let mainTalkVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTalkViewController") as! MainTalkViewController
+                        self.present(mainTalkVC, animated: true, completion: nil)
+                    }
+                    else{
+                        print("잘못된 사용자 입니다.")
+                    }
+                }
+            }
+            
+            
+        }
+        
+    }
     
     
     // MARK: - Navigation

@@ -78,6 +78,9 @@
                                 <state key="normal" title="로그인">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="logInEvent:" destination="PHQ-YU-AZ4" eventType="touchUpInside" id="Fry-xO-ktN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trO-oC-zhJ">
                                 <rect key="frame" x="62" y="563.5" width="290" height="30"/>
@@ -120,6 +123,22 @@
             </objects>
             <point key="canvasLocation" x="909" y="108"/>
         </scene>
+        <!--Main Talk View Controller-->
+        <scene sceneID="FjU-HE-r2M">
+            <objects>
+                <viewController storyboardIdentifier="MainTalkViewController" id="2WW-FX-WQX" customClass="MainTalkViewController" customModule="MyTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V6X-1e-U7H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="IsT-NM-uE0"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="C58-na-6Wm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uOQ-BG-m7l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1829" y="-193"/>
+        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="h5P-FI-yTM">
             <objects>
@@ -150,7 +169,7 @@
                                     <constraint firstAttribute="height" constant="40" id="CWj-ze-X6v"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VU5-go-JeN">
                                 <rect key="frame" x="8" y="479" width="398" height="35"/>
@@ -221,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nto-Ir-tHW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1863.7681159420292" y="273.88392857142856"/>
+            <point key="canvasLocation" x="1829" y="516"/>
         </scene>
     </scenes>
     <resources>
