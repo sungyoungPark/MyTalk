@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate {
     
     var viewModel = SignUpViewModel()
     var alertControllerManager : AlertControllerService? = nil
@@ -18,13 +18,33 @@ class SignUpViewController: UIViewController {
     @IBOutlet var email: UITextField!
     @IBOutlet var name: UITextField!
     @IBOutlet var password: UITextField!
+    @IBOutlet var profileImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        email.delegate = self
+        name.delegate = self
+        password.delegate = self
+        profileImageView.isUserInteractionEnabled = true
+        profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imagePicker)))
+    }
+    
+    @objc func imagePicker(){
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        profileImageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func signUpBtn(_ sender: Any) {
-        viewModel.signUpEvent(email: email.text!, password: password.text!, name: name.text!, completion: goBackLoginView)
+        viewModel.signUpEvent(email: email.text!, password: password.text!, name: name.text!, profile: profileImageView.image!, completion: goBackLoginView)
         
     }
     
@@ -38,16 +58,13 @@ class SignUpViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
 }

@@ -32,11 +32,12 @@ class LoginViewController: UIViewController {
                 Auth.auth().addStateDidChangeListener { ( auth, user ) in
                     if user != nil {
                         print("로그인 성공")
-                        let mainTalkVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTalkViewController") as! MainTalkViewController
+                        let mainTalkVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarViewController") as! UITabBarController
                         UIApplication.shared.keyWindow?.rootViewController = mainTalkVC
                         //self.present(mainTalkVC, animated: true, completion: nil)
                     }
                     else{
+                        
                         print("잘못된 사용자 입니다.")
                     }
                 }
