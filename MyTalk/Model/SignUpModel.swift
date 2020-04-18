@@ -9,6 +9,7 @@
 import UIKit
 
 struct SignUpModel {
+    var isSignUpSucess = false
     var profile = UIImage(named: "addProfileImage")
     var email = ""
     var password = ""

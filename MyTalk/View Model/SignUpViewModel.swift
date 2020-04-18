@@ -14,7 +14,7 @@ class SignUpViewModel {
     
     var model = Dynamic(SignUpModel())
     
-    func signUpEvent(completion : @escaping(() -> Void)){
+    func signUpEvent(){
         Auth.auth().createUser(withEmail: model.value.email, password: model.value.password) { authResult, error in
             let uid = authResult?.user.uid
             if authResult !=  nil{
@@ -24,13 +24,12 @@ class SignUpViewModel {
                 let profile = self.model.value.profile!.jpegData(compressionQuality: 0.1)
                 
                 let imageRef = Storage.storage().reference().child("userProfile").child(uid!)
-                print(profile)
                 imageRef.putData(profile!, metadata: nil) { (data, error) in
                     imageRef.downloadURL { (url, error) in
                         if error != nil{
                             print("url 실패")
                         } else{                        Database.database().reference().child("users").child(uid!).setValue(["name":self.model.value.name,"profileImageURL":url?.absoluteString])
-                            completion()
+                            self.model.value.isSignUpSucess = true
                         }
                     }
                 }

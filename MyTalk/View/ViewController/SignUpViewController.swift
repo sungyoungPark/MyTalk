@@ -64,6 +64,10 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate,UII
                 self.email.text = model.email
                 self.name.text = model.name
                 self.password.text = model.password
+                if (model.isSignUpSucess) {
+                    self.goBackLoginView()
+                }
+                
             })
         }
     }
@@ -84,7 +88,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate,UII
     }
     
     @IBAction func signUpBtn(_ sender: Any) {
-        viewModel!.signUpEvent(completion : goBackLoginView)
+        viewModel!.signUpEvent()
     }
     
     @IBAction func cancelBtn(_ sender: Any) {
