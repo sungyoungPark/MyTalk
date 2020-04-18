@@ -24,28 +24,28 @@ class SplashViewModel {
     
     var remoteConfig: RemoteConfig
     
-    var remote_config_message: String?
+    var remote_config_message = Dynamic("")
     
-    var remote_config_caps: Bool?
+    var remote_config_caps = Dynamic(true)
     
-    required init(completion: @escaping(() -> Void)) {
+    required init() {
         remoteConfig = RemoteConfig.remoteConfig()
         let settings = RemoteConfigSettings()
         settings.minimumFetchInterval = 0
         remoteConfig.configSettings = settings
         remoteConfig.setDefaults(fromPlist: "RemoteConfigDefaults")
-        fetchRemote(completion: completion)
+        fetchRemote()
     }
     
     
-    func fetchRemote(completion: @escaping(() -> Void)){
+    func fetchRemote(){
         remoteConfig.fetch(withExpirationDuration: TimeInterval(0)) { (status, error) -> Void in
             if status == .success {
                 print("Config fetched!")
                 self.remoteConfig.activate(completionHandler: { (error) in
-                    self.remote_config_caps = self.remoteConfig["splash_message_caps"].boolValue
-                    self.remote_config_message = self.remoteConfig["splash_message"].stringValue!
-                    completion()
+                    self.remote_config_message.value = self.remoteConfig["splash_message"].stringValue!
+                    self.remote_config_caps.value = self.remoteConfig["splash_message_caps"].boolValue
+                    print(self.remote_config_caps.value)
                 })
             } else {
                 print("Config not fetched")

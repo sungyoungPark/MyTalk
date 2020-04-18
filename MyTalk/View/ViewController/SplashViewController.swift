@@ -18,10 +18,32 @@ class SplashViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = SplashViewModel(completion: displayWelcome)
+        viewModel = SplashViewModel()
+        bindViewModel()
+        //viewModel = SplashViewModel(completion: displayWelcome)
     }
     
+    func bindViewModel(){
+        if let viewModel = viewModel {
+            viewModel.remote_config_caps.bind({(caps) in
+                DispatchQueue.main.async {
+                    if (caps) {
+                        let alert = self.alertControllerManager.makeAlertController(title: "공지사항", message: viewModel.remote_config_message.value, OK_handler: {(action) -> Void in exit(0)})
+                        self.view.backgroundColor = .gray
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    else{
+                        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                        loginVC.viewModel.remoteConfig = self.viewModel!.remoteConfig
+                        loginVC.alertControllerManager = self.alertControllerManager
+                        UIApplication.shared.keyWindow?.rootViewController = loginVC
+                    }
+                }
+            })
+        }
+    }
     
+    /*
     func displayWelcome(){
         if (viewModel!.remote_config_caps!) {
             let alert = alertControllerManager.makeAlertController(title: "공지사항", message: viewModel!.remote_config_message!, OK_handler: {(action) -> Void in exit(0)})
@@ -39,7 +61,7 @@ class SplashViewController: UIViewController {
         }
         
     }
-    
+    */
     
     
 }
