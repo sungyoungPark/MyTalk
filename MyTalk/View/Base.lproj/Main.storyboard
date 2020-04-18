@@ -180,7 +180,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3lp-yM-GiT">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3lp-yM-GiT" customClass="BindingTextField" customModule="MyTalk" customModuleProvider="target">
                                 <rect key="frame" x="8" y="329" width="398" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="yZ9-D2-30g"/>
@@ -188,7 +188,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqZ-OC-SP3">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqZ-OC-SP3" customClass="BindingTextField" customModule="MyTalk" customModuleProvider="target">
                                 <rect key="frame" x="8" y="401" width="398" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="eJ4-eW-k31"/>
@@ -196,7 +196,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PoY-ZY-QHG">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PoY-ZY-QHG" customClass="BindingTextField" customModule="MyTalk" customModuleProvider="target">
                                 <rect key="frame" x="8" y="480" width="398" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="37a-Vi-q5Q"/>
@@ -234,7 +234,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="83" height="161.5"/>
                                 <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="Poo-vK-9ME">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="Poo-vK-9ME" customClass="BindingImageView" customModule="MyTalk" customModuleProvider="target">
                                 <rect key="frame" x="114" y="157" width="186" height="128"/>
                             </imageView>
                         </subviews>

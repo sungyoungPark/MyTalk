@@ -12,13 +12,39 @@ import Firebase
 
 class SignUpViewController: UIViewController, UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate {
     
-    var viewModel = SignUpViewModel()
+    var viewModel : SignUpViewModel?
     var alertControllerManager : AlertControllerService? = nil
     
-    @IBOutlet var email: UITextField!
-    @IBOutlet var name: UITextField!
-    @IBOutlet var password: UITextField!
-    @IBOutlet var profileImageView: UIImageView!
+    @IBOutlet weak var email: BindingTextField! {
+        didSet{
+            email.bind{ [weak self] email in
+                self?.viewModel?.model.value.email = email
+            }
+        }
+    }
+    @IBOutlet weak var name: BindingTextField! {
+        didSet{
+            name.bind{ [weak self] name in
+                self?.viewModel?.model.value.name = name
+            }
+        }
+    }
+    
+    @IBOutlet weak var password: BindingTextField! {
+        didSet{
+            password.bind{ [weak self] password in
+                self?.viewModel?.model.value.password = password
+            }
+        }
+    }
+    
+    @IBOutlet var profileImageView: BindingImageView! {
+        didSet{
+            profileImageView.bind{ [weak self] profile in
+                self?.viewModel?.model.value.profile = profile
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +53,21 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate,UII
         password.delegate = self
         profileImageView.isUserInteractionEnabled = true
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imagePicker)))
+        viewModel = SignUpViewModel()
+        bindViewModel()
     }
+    
+    func bindViewModel(){
+        if let viewModel = viewModel{
+            viewModel.model.bind({ (model) in
+                self.profileImageView.image = model.profile
+                self.email.text = model.email
+                self.name.text = model.name
+                self.password.text = model.password
+            })
+        }
+    }
+    
     
     @objc func imagePicker(){
         let imagePicker = UIImagePickerController()
@@ -39,13 +79,12 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate,UII
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        profileImageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        viewModel?.model.value.profile = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func signUpBtn(_ sender: Any) {
-        viewModel.signUpEvent(email: email.text!, password: password.text!, name: name.text!, profile: profileImageView.image!, completion: goBackLoginView)
-        
+        viewModel!.signUpEvent(completion : goBackLoginView)
     }
     
     @IBAction func cancelBtn(_ sender: Any) {
@@ -66,5 +105,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate,UII
         textField.resignFirstResponder()
         return true
     }
+    
+    
     
 }
