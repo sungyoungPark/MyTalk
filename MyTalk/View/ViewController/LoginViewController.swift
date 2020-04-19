@@ -7,45 +7,53 @@
 //
 
 import UIKit
-import Firebase
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet var emailTextField: UITextField!
-    @IBOutlet var passwdTextField: UITextField!
-    var viewModel = LoginViewModel()
+    @IBOutlet var emailTextField: BindingTextField!{
+        didSet{
+            emailTextField.bind{ [weak self] email in
+                self?.viewModel?.model.value.email = email
+            }
+        }
+    }
+    
+    @IBOutlet var passwdTextField: BindingTextField! {
+        didSet{
+            passwdTextField.bind{ [weak self] password in
+                self?.viewModel?.model.value.password = password
+            }
+        }
+    }
+    
+    var viewModel : LoginViewModel?
     var alertControllerManager : AlertControllerService? = nil
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        viewModel = LoginViewModel()
+        bindViewModel()
+    }
+    
+    func bindViewModel(){
+        if let viewModel = viewModel{
+            viewModel.model.value.isLoginSucess.bind({ (flag) in
+                DispatchQueue.main.async {
+                    if(flag){
+                        let mainTalkVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarViewController") as! UITabBarController
+                        UIApplication.shared.keyWindow?.rootViewController = mainTalkVC
+                    }
+                    else{
+                        print("login false")
+                    }
+                }
+            })
+        }
     }
     
     @IBAction func logInEvent(_ sender: Any) {
-        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwdTextField.text!){ (user , error) in
-            if error != nil{
-                print("login 실패")
-                
-            }
-            else{
-                Auth.auth().addStateDidChangeListener { ( auth, user ) in
-                    if user != nil {
-                        print("로그인 성공")
-                        let mainTalkVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarViewController") as! UITabBarController
-                        UIApplication.shared.keyWindow?.rootViewController = mainTalkVC
-                        //self.present(mainTalkVC, animated: true, completion: nil)
-                    }
-                    else{
-                        
-                        print("잘못된 사용자 입니다.")
-                    }
-                }
-            }
-            
-            
-        }
-        
+        viewModel?.loginEvent()
     }
     
     

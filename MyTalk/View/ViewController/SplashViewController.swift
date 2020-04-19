@@ -20,7 +20,6 @@ class SplashViewController: UIViewController {
         super.viewDidLoad()
         viewModel = SplashViewModel()
         bindViewModel()
-        //viewModel = SplashViewModel(completion: displayWelcome)
     }
     
     func bindViewModel(){
@@ -34,7 +33,7 @@ class SplashViewController: UIViewController {
                     }
                     else{
                         let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                        loginVC.viewModel.remoteConfig = self.viewModel!.remoteConfig
+                     //   loginVC.viewModel.remoteConfig = self.viewModel!.remoteConfig
                         loginVC.alertControllerManager = self.alertControllerManager
                         UIApplication.shared.keyWindow?.rootViewController = loginVC
                     }

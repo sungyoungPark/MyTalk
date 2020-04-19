@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+//import Firebase
 
 
 class SignUpViewController: UIViewController, UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate {
@@ -22,6 +22,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate,UII
             }
         }
     }
+    
     @IBOutlet weak var name: BindingTextField! {
         didSet{
             name.bind{ [weak self] name in
@@ -61,13 +62,9 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate,UII
         if let viewModel = viewModel{
             viewModel.model.bind({ (model) in
                 self.profileImageView.image = model.profile
-                self.email.text = model.email
-                self.name.text = model.name
-                self.password.text = model.password
-                if (model.isSignUpSucess) {
+                if (model.isSignUpSucess.value) {
                     self.goBackLoginView()
                 }
-                
             })
         }
     }

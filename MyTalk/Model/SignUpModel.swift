@@ -9,7 +9,7 @@
 import UIKit
 
 struct SignUpModel {
-    var isSignUpSucess = false
+    var isSignUpSucess = Dynamic(false)
     var profile = UIImage(named: "addProfileImage")
     var email = ""
     var password = ""

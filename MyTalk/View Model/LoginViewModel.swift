@@ -10,14 +10,24 @@ import Foundation
 import  Firebase
 
 class LoginViewModel {
-    var remoteConfig: RemoteConfig?
+    var model = Dynamic(LoginModel())
     
-    
-    init() {
-        print("login viewmodel")
+    func loginEvent(){
+        Auth.auth().signIn(withEmail: model.value.email, password: model.value.password){ (user , error) in
+            if error != nil{
+                print("login 실패")
+                self.model.value.isLoginSucess.value = false
+            }
+            else{
+                Auth.auth().addStateDidChangeListener { ( auth, user ) in
+                    if user != nil {
+                        print("로그인 성공")
+                        self.model.value.isLoginSucess.value = true
+                    }
+                }
+            }
+        }
     }
     
-//    func getCaps(){
-//        print(remoteConfig!["splash_message"].stringValue!)
-//    }
+    
 }

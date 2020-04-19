@@ -45,7 +45,6 @@ class SplashViewModel {
                 self.remoteConfig.activate(completionHandler: { (error) in
                     self.remote_config_message.value = self.remoteConfig["splash_message"].stringValue!
                     self.remote_config_caps.value = self.remoteConfig["splash_message_caps"].boolValue
-                    print(self.remote_config_caps.value)
                 })
             } else {
                 print("Config not fetched")
