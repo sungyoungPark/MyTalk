@@ -14,7 +14,8 @@
 		5B244F3B243F41A80048833A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B244F3A243F41A80048833A /* LoginViewModel.swift */; };
 		5B244F3F243F98CE0048833A /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B244F3E243F98CE0048833A /* RemoteConfigDefaults.plist */; };
 		5B2DCD17244C95DC00600416 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2DCD16244C95DC00600416 /* LoginModel.swift */; };
-		5B2DCD1C244CB5F900600416 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2DCD1B244CB5F900600416 /* FriendModel.swift */; };
+		5B2DCD1C244CB5F900600416 /* MyFriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2DCD1B244CB5F900600416 /* MyFriendModel.swift */; };
+		5B308711244D9EC7006CC5BF /* MyTalkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B308710244D9EC7006CC5BF /* MyTalkUITests.swift */; };
 		5B4BE21D24398FEB00A43683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE21C24398FEB00A43683 /* AppDelegate.swift */; };
 		5B4BE21F24398FEB00A43683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE21E24398FEB00A43683 /* SceneDelegate.swift */; };
 		5B4BE22124398FEB00A43683 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE22024398FEB00A43683 /* SplashViewController.swift */; };
@@ -24,12 +25,23 @@
 		5BAC90F42445F749002092C3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC90F32445F749002092C3 /* SignUpViewController.swift */; };
 		5BAC90F924461C11002092C3 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC90F824461C11002092C3 /* SignUpViewModel.swift */; };
 		5BAC90FC24462A7C002092C3 /* MyFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC90FB24462A7C002092C3 /* MyFriendViewController.swift */; };
+		5BCE71DD244CD5C300DDC579 /* MyFriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCE71DC244CD5C300DDC579 /* MyFriendViewModel.swift */; };
 		5BCF30DF244AE103004ECCB7 /* BindingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF30DE244AE103004ECCB7 /* BindingTextField.swift */; };
 		5BCF30E4244AF483004ECCB7 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF30E3244AF483004ECCB7 /* Dynamic.swift */; };
 		5BCF30E7244B0053004ECCB7 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF30E6244B0053004ECCB7 /* SignUpModel.swift */; };
 		5BCF30EA244B0D5A004ECCB7 /* BindingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF30E9244B0D5A004ECCB7 /* BindingImageView.swift */; };
 		BC33912B2056796547275FB2 /* Pods_MyTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3E95D196398782585CBF82 /* Pods_MyTalk.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5B308713244D9EC7006CC5BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B4BE21124398FEB00A43683 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B4BE21824398FEB00A43683;
+			remoteInfo = MyTalk;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		26C2611824B0147317B4B162 /* Pods-MyTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTalk.release.xcconfig"; path = "Target Support Files/Pods-MyTalk/Pods-MyTalk.release.xcconfig"; sourceTree = "<group>"; };
@@ -40,7 +52,10 @@
 		5B244F3A243F41A80048833A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5B244F3E243F98CE0048833A /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		5B2DCD16244C95DC00600416 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
-		5B2DCD1B244CB5F900600416 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		5B2DCD1B244CB5F900600416 /* MyFriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendModel.swift; sourceTree = "<group>"; };
+		5B30870E244D9EC7006CC5BF /* MyTalkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyTalkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B308710244D9EC7006CC5BF /* MyTalkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTalkUITests.swift; sourceTree = "<group>"; };
+		5B308712244D9EC7006CC5BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B4BE21924398FEB00A43683 /* MyTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B4BE21C24398FEB00A43683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B4BE21E24398FEB00A43683 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +67,7 @@
 		5BAC90F32445F749002092C3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5BAC90F824461C11002092C3 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		5BAC90FB24462A7C002092C3 /* MyFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendViewController.swift; sourceTree = "<group>"; };
+		5BCE71DC244CD5C300DDC579 /* MyFriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendViewModel.swift; sourceTree = "<group>"; };
 		5BCF30DE244AE103004ECCB7 /* BindingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingTextField.swift; sourceTree = "<group>"; };
 		5BCF30E3244AF483004ECCB7 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		5BCF30E6244B0053004ECCB7 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
@@ -61,6 +77,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5B30870B244D9EC7006CC5BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5B4BE21624398FEB00A43683 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -95,6 +118,7 @@
 				5B09CAFF243E2C590057FCF9 /* SplashViewModel.swift */,
 				5B244F3A243F41A80048833A /* LoginViewModel.swift */,
 				5BAC90F824461C11002092C3 /* SignUpViewModel.swift */,
+				5BCE71DC244CD5C300DDC579 /* MyFriendViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -107,10 +131,20 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		5B30870F244D9EC7006CC5BF /* MyTalkUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5B308710244D9EC7006CC5BF /* MyTalkUITests.swift */,
+				5B308712244D9EC7006CC5BF /* Info.plist */,
+			);
+			path = MyTalkUITests;
+			sourceTree = "<group>";
+		};
 		5B4BE21024398FEB00A43683 = {
 			isa = PBXGroup;
 			children = (
 				5B4BE21B24398FEB00A43683 /* MyTalk */,
+				5B30870F244D9EC7006CC5BF /* MyTalkUITests */,
 				5B4BE21A24398FEB00A43683 /* Products */,
 				FDB34ACBF436CCC96B80D0AA /* Pods */,
 				07742234BFFD02C83CD91C3C /* Frameworks */,
@@ -121,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				5B4BE21924398FEB00A43683 /* MyTalk.app */,
+				5B30870E244D9EC7006CC5BF /* MyTalkUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,7 +195,7 @@
 			children = (
 				5BCF30E6244B0053004ECCB7 /* SignUpModel.swift */,
 				5B2DCD16244C95DC00600416 /* LoginModel.swift */,
-				5B2DCD1B244CB5F900600416 /* FriendModel.swift */,
+				5B2DCD1B244CB5F900600416 /* MyFriendModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +222,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5B30870D244D9EC7006CC5BF /* MyTalkUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B308715244D9EC7006CC5BF /* Build configuration list for PBXNativeTarget "MyTalkUITests" */;
+			buildPhases = (
+				5B30870A244D9EC7006CC5BF /* Sources */,
+				5B30870B244D9EC7006CC5BF /* Frameworks */,
+				5B30870C244D9EC7006CC5BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B308714244D9EC7006CC5BF /* PBXTargetDependency */,
+			);
+			name = MyTalkUITests;
+			productName = MyTalkUITests;
+			productReference = 5B30870E244D9EC7006CC5BF /* MyTalkUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		5B4BE21824398FEB00A43683 /* MyTalk */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B4BE22D24398FEC00A43683 /* Build configuration list for PBXNativeTarget "MyTalk" */;
@@ -216,6 +269,10 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "박성영";
 				TargetAttributes = {
+					5B30870D244D9EC7006CC5BF = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 5B4BE21824398FEB00A43683;
+					};
 					5B4BE21824398FEB00A43683 = {
 						CreatedOnToolsVersion = 11.3;
 					};
@@ -235,11 +292,19 @@
 			projectRoot = "";
 			targets = (
 				5B4BE21824398FEB00A43683 /* MyTalk */,
+				5B30870D244D9EC7006CC5BF /* MyTalkUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5B30870C244D9EC7006CC5BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5B4BE21724398FEB00A43683 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,16 +362,25 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5B30870A244D9EC7006CC5BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B308711244D9EC7006CC5BF /* MyTalkUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5B4BE21524398FEB00A43683 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5BCF30EA244B0D5A004ECCB7 /* BindingImageView.swift in Sources */,
 				5BCF30E4244AF483004ECCB7 /* Dynamic.swift in Sources */,
-				5B2DCD1C244CB5F900600416 /* FriendModel.swift in Sources */,
+				5B2DCD1C244CB5F900600416 /* MyFriendModel.swift in Sources */,
 				5B09CB05243E455C0057FCF9 /* LoginViewController.swift in Sources */,
 				5BAC90FC24462A7C002092C3 /* MyFriendViewController.swift in Sources */,
 				5B4BE22124398FEB00A43683 /* SplashViewController.swift in Sources */,
+				5BCE71DD244CD5C300DDC579 /* MyFriendViewModel.swift in Sources */,
 				5BAC90F42445F749002092C3 /* SignUpViewController.swift in Sources */,
 				5BCF30E7244B0053004ECCB7 /* SignUpModel.swift in Sources */,
 				5B4BE21D24398FEB00A43683 /* AppDelegate.swift in Sources */,
@@ -321,6 +395,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5B308714244D9EC7006CC5BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B4BE21824398FEB00A43683 /* MyTalk */;
+			targetProxy = 5B308713244D9EC7006CC5BF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5B4BE22224398FEB00A43683 /* Main.storyboard */ = {
@@ -342,6 +424,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5B308716244D9EC7006CC5BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VDFGK9GV66;
+				INFOPLIST_FILE = MyTalkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = none.MyTalkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MyTalk;
+			};
+			name = Debug;
+		};
+		5B308717244D9EC7006CC5BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VDFGK9GV66;
+				INFOPLIST_FILE = MyTalkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = none.MyTalkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MyTalk;
+			};
+			name = Release;
+		};
 		5B4BE22B24398FEC00A43683 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -499,6 +619,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5B308715244D9EC7006CC5BF /* Build configuration list for PBXNativeTarget "MyTalkUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B308716244D9EC7006CC5BF /* Debug */,
+				5B308717244D9EC7006CC5BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5B4BE21424398FEB00A43683 /* Build configuration list for PBXProject "MyTalk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

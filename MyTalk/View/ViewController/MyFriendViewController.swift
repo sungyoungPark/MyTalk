@@ -7,46 +7,58 @@
 //
 
 import UIKit
-import Firebase
+//import Firebase
 
 class MyFriendViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     @IBOutlet var tv: UITableView!
-    var array : [FriendModel] = []
+    
+    var array : [MyFriendModel] = []
+    var viewModel : MyFriendViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
+        viewModel = MyFriendViewModel()
+        bindViewModel()
         tv.delegate = self
         tv.dataSource = self
-        getFirebase()
-        print("getFirebase")
-        // Do any additional setup after loading the view.
-    }
-    
-    
-    func getFirebase(){
-        Database.database().reference().child("users").observe(DataEventType.value, with: { (snapShot) in
-            let postDict = snapShot.value as? [String : AnyObject] ?? [:]
-            self.array.removeAll()
-            
-            for child in postDict{
-                var friend = FriendModel()
-                friend.friendName = child.value["name"]!.description
-                friend.profileImageURL = child.value["profileImageURL"]!.description
-                self.array.append(friend)
-                print(friend)
-                // friendModel.
-                
-            }
-            DispatchQueue.main.async {
-                self.tv.reloadData()
-            }
-        })
+        
         
     }
     
+    func bindViewModel(){
+        if let viewModel = viewModel{
+            viewModel.modelArray.bind({ (modelArray) in
+                self.array = modelArray
+                DispatchQueue.main.async {
+                    self.tv.reloadData()
+                }
+                
+            })
+        }
+    }
+    
+    /*
+     //viewModel로
+     func getFirebase(){
+     Database.database().reference().child("users").observe(DataEventType.value, with: { (snapShot) in
+     let postDict = snapShot.value as? [String : AnyObject] ?? [:]
+     self.array.removeAll()
+     
+     for child in postDict{
+     var friend = MyFriendModel()
+     friend.friendName = child.value["name"]!.description
+     friend.profileImageURL = child.value["profileImageURL"]!.description
+     self.array.append(friend)
+     }
+     DispatchQueue.main.async {
+     self.tv.reloadData()
+     }
+     })
+     
+     }
+     */
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return array.count
@@ -67,8 +79,8 @@ class MyFriendViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.imageView!.image = profile.image
             }
         }.resume()
-         cell.textLabel?.text = array[indexPath.row].friendName
-       
+        cell.textLabel?.text = array[indexPath.row].friendName
+        
         return cell
     }
     

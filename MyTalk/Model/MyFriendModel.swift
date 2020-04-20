@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FriendModel {
+struct MyFriendModel {
     var profileImageURL = ""
     var friendName = ""
 }
