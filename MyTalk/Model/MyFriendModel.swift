@@ -6,9 +6,9 @@
 //  Copyright © 2020 박성영. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct MyFriendModel {
-    var profileImageURL = ""
+    var profileImage = UIImage()
     var friendName = ""
 }

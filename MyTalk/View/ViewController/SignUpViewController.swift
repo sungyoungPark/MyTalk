@@ -39,13 +39,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate,UII
         }
     }
     
-    @IBOutlet var profileImageView: BindingImageView! {
-        didSet{
-            profileImageView.bind{ [weak self] profile in
-                self?.viewModel?.model.value.profile = profile
-            }
-        }
-    }
+    @IBOutlet var profileImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +56,11 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate,UII
         if let viewModel = viewModel{
             viewModel.model.bind({ (model) in
                 self.profileImageView.image = model.profile
-                if (model.isSignUpSucess.value) {
+            })
+        }
+        if let viewModel = viewModel{
+            viewModel.model.value.isSignUpSucess.bind({ (flag) in
+                if (flag) {
                     self.goBackLoginView()
                 }
             })

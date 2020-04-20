@@ -14,7 +14,6 @@ class MyFriendViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet var tv: UITableView!
     
-    var array : [MyFriendModel] = []
     var viewModel : MyFriendViewModel?
     
     override func viewDidLoad() {
@@ -30,56 +29,26 @@ class MyFriendViewController: UIViewController, UITableViewDelegate, UITableView
     func bindViewModel(){
         if let viewModel = viewModel{
             viewModel.modelArray.bind({ (modelArray) in
-                self.array = modelArray
                 DispatchQueue.main.async {
+                    
                     self.tv.reloadData()
+                    
                 }
                 
             })
         }
     }
     
-    /*
-     //viewModel로
-     func getFirebase(){
-     Database.database().reference().child("users").observe(DataEventType.value, with: { (snapShot) in
-     let postDict = snapShot.value as? [String : AnyObject] ?? [:]
-     self.array.removeAll()
-     
-     for child in postDict{
-     var friend = MyFriendModel()
-     friend.friendName = child.value["name"]!.description
-     friend.profileImageURL = child.value["profileImageURL"]!.description
-     self.array.append(friend)
-     }
-     DispatchQueue.main.async {
-     self.tv.reloadData()
-     }
-     })
-     
-     }
-     */
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        return (viewModel?.modelArray.value.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath)
-        
-        let profile = UIImageView()
-        cell.addSubview(profile)
-        
-        URLSession.shared.dataTask(with:  URL(string: array[indexPath.row].profileImageURL)!) { (Data, URLResponse, Error) in
-            
-            DispatchQueue.main.async {
-                profile.image = UIImage(data: Data!)
-                cell.imageView!.layer.cornerRadius = profile.frame.size.width / 2
-                cell.imageView!.clipsToBounds = true
-                cell.imageView!.image = profile.image
-            }
-        }.resume()
-        cell.textLabel?.text = array[indexPath.row].friendName
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! MyFriendTableViewCell
+       
+        cell.name.text = viewModel?.modelArray.value[indexPath.row].friendName
+        cell.profile.image = viewModel?.modelArray.value[indexPath.row].profileImage
         
         return cell
     }

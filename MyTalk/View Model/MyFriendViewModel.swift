@@ -27,17 +27,23 @@ class MyFriendViewModel {
                 print(child)
                 var friend = MyFriendModel()
                 friend.friendName = child.value["name"]!.description
-                friend.profileImageURL = child.value["profileImageURL"]!.description
-                self.modelArray.value.append(friend)
+                URLSession.shared.dataTask(with:  URL(string: child.value["profileImageURL"]!.description)!) { (Data, URLResponse, Error) in
+                    DispatchQueue.main.async {
+            
+                    let profile = UIImage(data: Data!)
+                    //friend.profileImage.layer.cornerRadius = (profile?.size.width)! / 2
+                   // friend.profileImage.clipsToBounds = true
+                        friend.profileImage = profile!
+                    self.modelArray.value.append(friend)
+                    }
+                  
+                }.resume()
+                
+            
             }
-            /*
-            //viewController로
-            DispatchQueue.main.async {
-                self.tv.reloadData()
-            }
-            */
         })
         
     }
+    
     
 }

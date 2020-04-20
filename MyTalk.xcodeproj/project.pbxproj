@@ -16,6 +16,7 @@
 		5B2DCD17244C95DC00600416 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2DCD16244C95DC00600416 /* LoginModel.swift */; };
 		5B2DCD1C244CB5F900600416 /* MyFriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2DCD1B244CB5F900600416 /* MyFriendModel.swift */; };
 		5B308711244D9EC7006CC5BF /* MyTalkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B308710244D9EC7006CC5BF /* MyTalkUITests.swift */; };
+		5B30871A244DE9BA006CC5BF /* MyFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B308719244DE9BA006CC5BF /* MyFriendTableViewCell.swift */; };
 		5B4BE21D24398FEB00A43683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE21C24398FEB00A43683 /* AppDelegate.swift */; };
 		5B4BE21F24398FEB00A43683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE21E24398FEB00A43683 /* SceneDelegate.swift */; };
 		5B4BE22124398FEB00A43683 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE22024398FEB00A43683 /* SplashViewController.swift */; };
@@ -56,6 +57,7 @@
 		5B30870E244D9EC7006CC5BF /* MyTalkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyTalkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B308710244D9EC7006CC5BF /* MyTalkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTalkUITests.swift; sourceTree = "<group>"; };
 		5B308712244D9EC7006CC5BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B308719244DE9BA006CC5BF /* MyFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendTableViewCell.swift; sourceTree = "<group>"; };
 		5B4BE21924398FEB00A43683 /* MyTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B4BE21C24398FEB00A43683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B4BE21E24398FEB00A43683 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		5B09CAFD243DE0A70057FCF9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B308718244DE9A5006CC5BF /* Cell */,
 				5BAC90FA24462225002092C3 /* ViewController */,
 				5B4BE22224398FEB00A43683 /* Main.storyboard */,
 			);
@@ -138,6 +141,14 @@
 				5B308712244D9EC7006CC5BF /* Info.plist */,
 			);
 			path = MyTalkUITests;
+			sourceTree = "<group>";
+		};
+		5B308718244DE9A5006CC5BF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5B308719244DE9BA006CC5BF /* MyFriendTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		5B4BE21024398FEB00A43683 = {
@@ -385,6 +396,7 @@
 				5BCF30E7244B0053004ECCB7 /* SignUpModel.swift in Sources */,
 				5B4BE21D24398FEB00A43683 /* AppDelegate.swift in Sources */,
 				5BAC90F924461C11002092C3 /* SignUpViewModel.swift in Sources */,
+				5B30871A244DE9BA006CC5BF /* MyFriendTableViewCell.swift in Sources */,
 				5B4BE21F24398FEB00A43683 /* SceneDelegate.swift in Sources */,
 				5B2DCD17244C95DC00600416 /* LoginModel.swift in Sources */,
 				5B09CB03243E2CE10057FCF9 /* AlertControllerService.swift in Sources */,
