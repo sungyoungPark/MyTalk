@@ -54,8 +54,8 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate,UII
     
     func bindViewModel(){
         if let viewModel = viewModel{
-            viewModel.model.bind({ (model) in
-                self.profileImageView.image = model.profile
+            viewModel.model.value.profile.bind({ (model) in
+                self.profileImageView.image = model
             })
         }
         if let viewModel = viewModel{
@@ -78,7 +78,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate,UII
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        viewModel?.model.value.profile = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        viewModel?.model.value.profile.value = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         dismiss(animated: true, completion: nil)
     }
     

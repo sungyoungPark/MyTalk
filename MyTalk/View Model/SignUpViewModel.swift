@@ -19,7 +19,7 @@ class SignUpViewModel {
             let uid = authResult?.user.uid
             if authResult !=  nil{
                 print("register success")
-                let profile = self.model.value.profile!.jpegData(compressionQuality: 0.1)
+                let profile = self.model.value.profile.value!.jpegData(compressionQuality: 0.1)
                 let imageRef = Storage.storage().reference().child("userProfile").child(uid!)
                 imageRef.putData(profile!, metadata: nil) { (data, error) in
                     imageRef.downloadURL { (url, error) in
