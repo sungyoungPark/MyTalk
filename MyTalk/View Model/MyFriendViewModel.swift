@@ -14,7 +14,6 @@ class MyFriendViewModel {
     var modelArray = Dynamic([MyFriendModel()])
     
     init() {
-        print("MyFriednViewModel")
         getFirebaseData()
     }
     
@@ -24,7 +23,6 @@ class MyFriendViewModel {
             self.modelArray.value.removeAll()
 
             for child in postDict{
-                print(child)
                 var friend = MyFriendModel()
                 friend.friendName = child.value["name"]!.description
                 URLSession.shared.dataTask(with:  URL(string: child.value["profileImageURL"]!.description)!) { (Data, URLResponse, Error) in

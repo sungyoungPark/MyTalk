@@ -11,17 +11,11 @@ import XCTest
 class MyTalkUITests: XCTestCase {
     
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+   
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+
     
     
     func testExample() {
@@ -33,18 +27,31 @@ class MyTalkUITests: XCTestCase {
     }
     
     func testMyTalk(){
+        
         let app = XCUIApplication()
+        app.launch()
         app.textFields["Email"].tap()
-        app.secureTextFields["password"].tap()
+        app.textFields["Email"].typeText("test1@test1.com")
+        
+       // app.secureTextFields["password"].tap()
+        UIPasteboard.general.string = "test11"
+        app.secureTextFields["password"].doubleTap()
+        app.menuItems.element(boundBy: 0).tap()
         app.buttons["로그인"].tap()
+        
+     
+      
+               
     }
     
-    func testLaunchPerformance() {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
-                XCUIApplication().launch()
-            }
-        }
-    }
+    
+
+//    func testLaunchPerformance() {
+//        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
+//            // This measures how long it takes to launch your application.
+//            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
+//                XCUIApplication().launch()
+//            }
+//        }
+//    }
 }

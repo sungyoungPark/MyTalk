@@ -22,8 +22,11 @@ class MyFriendViewController: UIViewController, UITableViewDelegate, UITableView
         bindViewModel()
         tv.delegate = self
         tv.dataSource = self
-        
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func bindViewModel(){
@@ -46,7 +49,7 @@ class MyFriendViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! MyFriendTableViewCell
-       
+        
         cell.name.text = viewModel?.modelArray.value[indexPath.row].friendName
         cell.profile.image = viewModel?.modelArray.value[indexPath.row].profileImage
         
@@ -61,14 +64,18 @@ class MyFriendViewController: UIViewController, UITableViewDelegate, UITableView
         super.didReceiveMemoryWarning()
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? MyFriendTableViewCell , let indexPath = tv.indexPath(for: cell) {
+//            if let vc = segue.destination as? DetailMemoViewController {
+//
+//            }
+        }
+    }
+    
+
+
 }

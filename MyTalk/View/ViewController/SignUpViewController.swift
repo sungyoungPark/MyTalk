@@ -78,7 +78,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate,UII
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        viewModel?.model.value.profile.value = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        viewModel?.model.value.profile.value = (info[UIImagePickerController.InfoKey.originalImage] as? UIImage)!
         dismiss(animated: true, completion: nil)
     }
     
