@@ -10,6 +10,8 @@ import UIKit
 
 class ChatViewController: UIViewController {
 
+    var destination : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true

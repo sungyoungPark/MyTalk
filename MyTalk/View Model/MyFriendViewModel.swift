@@ -18,6 +18,7 @@ class MyFriendViewModel {
     }
     
     func getFirebaseData(){
+        print(Auth.auth().currentUser?.email)
         Database.database().reference().child("users").observe(DataEventType.value, with: { (snapShot) in
             let postDict = snapShot.value as? [String : AnyObject] ?? [:]
             self.modelArray.value.removeAll()

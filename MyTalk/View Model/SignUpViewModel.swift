@@ -26,7 +26,7 @@ class SignUpViewModel {
                         if error != nil{
                             print("url 실패")
                         } else{
-                            let values = ["name":self.model.value.name,"profileImageURL":url?.absoluteString]
+                            let values = ["name":self.model.value.name,"profileImageURL":url?.absoluteString,"uid":uid]
                             Database.database().reference().child("users").child(uid!).setValue(values, withCompletionBlock: {(err,ref) in
                                 if(err==nil){
                                     self.model.value.isSignUpSucess.value = true
