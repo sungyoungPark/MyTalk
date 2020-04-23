@@ -10,6 +10,7 @@
 		5B09CB00243E2C590057FCF9 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B09CAFF243E2C590057FCF9 /* SplashViewModel.swift */; };
 		5B09CB03243E2CE10057FCF9 /* AlertControllerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B09CB02243E2CE10057FCF9 /* AlertControllerService.swift */; };
 		5B09CB05243E455C0057FCF9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B09CB04243E455C0057FCF9 /* LoginViewController.swift */; };
+		5B1278192451928900A05643 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1278182451928900A05643 /* ChatModel.swift */; };
 		5B1B101D244F0C5A00402AFB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B101C244F0C5A00402AFB /* ChatViewController.swift */; };
 		5B1DECF1243C98DD0003C276 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B1DECF0243C98DD0003C276 /* GoogleService-Info.plist */; };
 		5B244F3B243F41A80048833A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B244F3A243F41A80048833A /* LoginViewModel.swift */; };
@@ -49,6 +50,7 @@
 		5B09CAFF243E2C590057FCF9 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		5B09CB02243E2CE10057FCF9 /* AlertControllerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerService.swift; sourceTree = "<group>"; };
 		5B09CB04243E455C0057FCF9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5B1278182451928900A05643 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		5B1B101C244F0C5A00402AFB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		5B1DECF0243C98DD0003C276 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B244F3A243F41A80048833A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				5BCF30E6244B0053004ECCB7 /* SignUpModel.swift */,
 				5B2DCD16244C95DC00600416 /* LoginModel.swift */,
 				5B2DCD1B244CB5F900600416 /* MyFriendModel.swift */,
+				5B1278182451928900A05643 /* ChatModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			files = (
 				5BCF30E4244AF483004ECCB7 /* Dynamic.swift in Sources */,
 				5B2DCD1C244CB5F900600416 /* MyFriendModel.swift in Sources */,
+				5B1278192451928900A05643 /* ChatModel.swift in Sources */,
 				5B09CB05243E455C0057FCF9 /* LoginViewController.swift in Sources */,
 				5BAC90FC24462A7C002092C3 /* MyFriendViewController.swift in Sources */,
 				5B4BE22124398FEB00A43683 /* SplashViewController.swift in Sources */,

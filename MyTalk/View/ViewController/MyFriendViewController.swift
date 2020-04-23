@@ -33,26 +33,51 @@ class MyFriendViewController: UIViewController, UITableViewDelegate, UITableView
         if let viewModel = viewModel{
             viewModel.modelArray.bind({ (modelArray) in
                 DispatchQueue.main.async {
-                    
                     self.tv.reloadData()
-                    
+                }
+            })
+            viewModel.myProfile.bind({ (myProfile) in
+                DispatchQueue.main.async {
+                    self.tv.reloadData()
                 }
                 
             })
         }
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if (section == 1) {
+            return "친구"
+        }
+        else{
+            return "내 프로필"
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (viewModel?.modelArray.value.count)!
+        if (section == 0){
+            return 1
+        }
+        else{
+            return (viewModel?.modelArray.value.count)!
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! MyFriendTableViewCell
         
-        cell.name.text = viewModel?.modelArray.value[indexPath.row].friendName
-        cell.profile.image = viewModel?.modelArray.value[indexPath.row].profileImage
-        
+        if (indexPath.section == 0){
+            cell.name.text = viewModel?.myProfile.value.name
+            cell.profile.image = viewModel?.myProfile.value.profileImage
+        }
+        else{
+            cell.name.text = viewModel?.modelArray.value[indexPath.row].name
+            cell.profile.image = viewModel?.modelArray.value[indexPath.row].profileImage
+        }
         return cell
     }
     
@@ -70,12 +95,12 @@ class MyFriendViewController: UIViewController, UITableViewDelegate, UITableView
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? MyFriendTableViewCell , let indexPath = tv.indexPath(for: cell) {
-//            if let vc = segue.destination as? DetailMemoViewController {
-//
-//            }
+            if let vc = segue.destination as? ChatViewController{
+                vc.destinationUid = viewModel?.modelArray.value[indexPath.row].uid
+            }
         }
     }
     
-
-
+    
+    
 }

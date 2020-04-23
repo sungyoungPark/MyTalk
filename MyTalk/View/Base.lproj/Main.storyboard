@@ -217,14 +217,38 @@
                     <view key="view" contentMode="scaleToFill" id="ErN-rt-7Gl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pgW-dq-KD5">
+                                <rect key="frame" x="20" y="751" width="310" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFw-eT-Vfe">
+                                <rect key="frame" x="356" y="751" width="30" height="30"/>
+                                <state key="normal" title="전송"/>
+                                <connections>
+                                    <action selector="sendMSG:" destination="ArU-HR-2Pu" eventType="touchUpInside" id="dJW-6X-xAB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VFd-4N-bIg" firstAttribute="bottom" secondItem="UFw-eT-Vfe" secondAttribute="bottom" constant="32" id="ALH-iD-R7f"/>
+                            <constraint firstItem="pgW-dq-KD5" firstAttribute="leading" secondItem="VFd-4N-bIg" secondAttribute="leading" constant="20" id="Ukj-r1-DgY"/>
+                            <constraint firstItem="VFd-4N-bIg" firstAttribute="bottom" secondItem="pgW-dq-KD5" secondAttribute="bottom" constant="28" id="f7b-bk-Vw2"/>
+                            <constraint firstItem="VFd-4N-bIg" firstAttribute="trailing" secondItem="UFw-eT-Vfe" secondAttribute="trailing" constant="28" id="kcU-fk-vCF"/>
+                            <constraint firstItem="UFw-eT-Vfe" firstAttribute="leading" secondItem="pgW-dq-KD5" secondAttribute="trailing" constant="26" id="rgn-ax-QfO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VFd-4N-bIg"/>
                     </view>
                     <navigationItem key="navigationItem" id="6h1-8X-Ube"/>
+                    <connections>
+                        <outlet property="msgTextField" destination="pgW-dq-KD5" id="2pc-mU-VZr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oET-78-xrz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5730" y="-938"/>
+            <point key="canvasLocation" x="5728.985507246377" y="-938.16964285714278"/>
         </scene>
         <!--chat-->
         <scene sceneID="G53-aZ-fTa">

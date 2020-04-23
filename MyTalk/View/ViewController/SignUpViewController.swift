@@ -57,8 +57,8 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate,UII
             viewModel.model.value.profile.bind({ (model) in
                 self.profileImageView.image = model
             })
-        }
-        if let viewModel = viewModel{
+       // }
+        //if let viewModel = viewModel{
             viewModel.model.value.isSignUpSucess.bind({ (flag) in
                 if (flag) {
                     self.goBackLoginView()

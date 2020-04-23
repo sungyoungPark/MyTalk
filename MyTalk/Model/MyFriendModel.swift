@@ -10,6 +10,6 @@ import UIKit
 
 struct MyFriendModel {
     var profileImage = UIImage()
-    var friendName = ""
+    var name = ""
     var uid = ""
 }
