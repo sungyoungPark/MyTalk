@@ -13,7 +13,7 @@ import UIKit
 class SignUpViewController: UIViewController, UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate {
     
     var viewModel : SignUpViewModel?
-    var alertControllerManager : AlertControllerService? = nil
+    let alertControllerManager = AlertControllerService()
     
     @IBOutlet weak var email: BindingTextField! {
         didSet{
@@ -91,7 +91,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate,UII
     }
     
     func goBackLoginView(){
-        let alert = alertControllerManager!.makeAlertController(title: "성공", message: "회원가입이 성공적으로 완료되었습니다.", OK_handler: {(action) -> Void in  self.dismiss(animated: true, completion: nil)})
+        let alert = alertControllerManager.makeAlertController(title: "성공", message: "회원가입이 성공적으로 완료되었습니다.", OK_handler: {(action) -> Void in  self.dismiss(animated: true, completion: nil)})
         self.view.backgroundColor = .gray
         self.present(alert, animated: true, completion: nil)
     }

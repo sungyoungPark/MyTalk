@@ -17,6 +17,7 @@ class SignUpViewModel {
     func signUpEvent(){
         Auth.auth().createUser(withEmail: model.value.email, password: model.value.password) { authResult, error in
             let uid = authResult?.user.uid
+            let email = authResult?.user.email?.replacingOccurrences(of: ".", with: ",")
             if authResult !=  nil{
                 print("register success")
                 let profile = self.model.value.profile.value!.jpegData(compressionQuality: 0.1)
@@ -27,7 +28,7 @@ class SignUpViewModel {
                             print("url 실패")
                         } else{
                             let values = ["name":self.model.value.name,"profileImageURL":url?.absoluteString,"uid":uid]
-                            Database.database().reference().child("users").child(uid!).setValue(values, withCompletionBlock: {(err,ref) in
+                            Database.database().reference().child("users").child(email!).setValue(values, withCompletionBlock: {(err,ref) in
                                 if(err==nil){
                                     self.model.value.isSignUpSucess.value = true
                                 }
