@@ -185,7 +185,6 @@
                                         <connections>
                                             <outlet property="name" destination="Ne3-Lt-SGs" id="ORi-DY-4NE"/>
                                             <outlet property="profile" destination="tUG-ZB-jpI" id="h46-x5-zUQ"/>
-                                            <segue destination="ArU-HR-2Pu" kind="show" identifier="sgChat" id="gtW-nv-Hih"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -211,11 +210,29 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tv" destination="A1P-vH-5zq" id="i8I-GH-yiW"/>
+                        <segue destination="ArU-HR-2Pu" kind="show" identifier="sgChat" id="2p9-sY-lnV"/>
+                        <segue destination="bQg-As-vlI" kind="show" identifier="sgChangeProfile" id="WPh-NM-jHu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uOQ-BG-m7l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4760.8695652173919" y="-937.5"/>
+            <point key="canvasLocation" x="4855" y="-938"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Bc1-df-e8Y">
+            <objects>
+                <viewController id="bQg-As-vlI" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0tn-Nz-ZhU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="28G-SC-Mm0"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="T3s-Q3-gY6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sMp-Tk-rc0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5819" y="-1439"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="xmd-oQ-oiM">
@@ -255,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oET-78-xrz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5728.985507246377" y="-938.16964285714278"/>
+            <point key="canvasLocation" x="5820" y="-672"/>
         </scene>
         <!--chat-->
         <scene sceneID="G53-aZ-fTa">

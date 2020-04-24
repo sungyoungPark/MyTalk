@@ -114,6 +114,19 @@ class MyFriendViewController: UIViewController, UITableViewDelegate, UITableView
         return 50
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.section)
+        if(indexPath.section == 2){   //채팅창으로
+            performSegue(withIdentifier: "sgChat", sender: nil)
+        }
+        else if(indexPath.section == 1){  //친구수락 여부 창
+            
+        }
+        else{ //프로필 수정창
+            performSegue(withIdentifier: "sgChangeProfile", sender: nil)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -123,13 +136,18 @@ class MyFriendViewController: UIViewController, UITableViewDelegate, UITableView
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let cell = sender as? MyFriendTableViewCell , let indexPath = tv.indexPath(for: cell) {
-            if let vc = segue.destination as? ChatViewController{
-                if (indexPath.section == 2){
-                vc.destinationUid = viewModel?.modelArray.value[indexPath.row].uid
+        print(segue.identifier)
+        if segue.identifier == "sgChat"{
+            if let cell = sender as? MyFriendTableViewCell , let indexPath = tv.indexPath(for: cell) {
+                if let vc = segue.destination as? ChatViewController{
+                    if (indexPath.section == 2){
+                        vc.destinationUid = viewModel?.modelArray.value[indexPath.row].uid
+                    }
                 }
             }
         }
+        
+        
     }
     
     
