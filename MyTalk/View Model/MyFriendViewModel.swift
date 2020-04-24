@@ -34,6 +34,7 @@ class MyFriendViewModel {
             var profile = MyFriendModel()
             profile.name = postDict["name"] as! String
             profile.uid = postDict["uid"] as! String
+            profile.email = email!
             self.myProfileURL = (postDict["profileImageURL"]?.description)!
             URLSession.shared.dataTask(with:  URL(string: self.myProfileURL)!) { (Data, URLResponse, Error) in
                 DispatchQueue.main.async {
@@ -42,7 +43,7 @@ class MyFriendViewModel {
                     self.myProfile.value = profile
                 }
             }.resume()
-            
+            //--내 프로필 추가
             let friendList = postDict["friendList"] as? [String : AnyObject] ?? [:]
             if (postDict["friendList"] == nil){
                 print("친구 없음")
@@ -50,8 +51,8 @@ class MyFriendViewModel {
                 for child in friendList{
                     if ((child.value["isFriend"]?.boolValue) == false){  //친구 요청 있을때
                         var waitFriend = MyFriendModel()
-                        
                         waitFriend.name = child.value["name"]!.description
+                        waitFriend.email = child.key
                         
                         URLSession.shared.dataTask(with:  URL(string: child.value["profileImageURL"]!.description)!) { (Data, URLResponse, Error) in
                             DispatchQueue.main.async {
@@ -68,6 +69,7 @@ class MyFriendViewModel {
                         var friend = MyFriendModel()
                         friend.name = child.value["name"]!.description
                         friend.uid = child.value["uid"]!.description
+                        friend.email = child.key
                         URLSession.shared.dataTask(with:  URL(string: child.value["profileImageURL"]!.description)!) { (Data, URLResponse, Error) in
                             DispatchQueue.main.async {
                                 let profile = UIImage(data: Data!)
@@ -76,8 +78,6 @@ class MyFriendViewModel {
                             }
                         }.resume()
                     }
-                    
-
                 }
                 print("친구 있음")
             }
@@ -93,6 +93,13 @@ class MyFriendViewModel {
         let friendEmail = email.replacingOccurrences(of: ".", with: ",")
         let value = ["isFriend": false,"name" : myProfile.value.name.description,"profileImageURL":myProfileURL,"uid":myProfile.value.uid.description] as [String : Any]
         Database.database().reference().child("users").child(friendEmail).child("friendList").child(myEmail!).setValue(value)
+    }
+    
+    func agreeFriendRequest(friendModel : MyFriendModel){
+        print(friendModel)
+        let email = Auth.auth().currentUser?.email?.replacingOccurrences(of: ".", with: ",")
+        Database.database().reference().child("users").child(email!).child("friendList").child(friendModel.email).child("isFriend").setValue(true)   //내 데이터에서 친구추가
+        Database.database().reference().child("users").child(friendModel.email).child("friendList").child(email!).child("isFriend").setValue(true)   //친구 데이터에서 내 데이터 추가
     }
     
 }

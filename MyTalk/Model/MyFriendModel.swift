@@ -12,4 +12,5 @@ struct MyFriendModel {
     var profileImage = UIImage()
     var name = ""
     var uid = ""
+    var email = ""
 }

@@ -28,12 +28,10 @@ class ChatViewController: UIViewController {
     
     @IBAction func sendMSG(_ sender: Any) {
         let roomInfo : Dictionary<String,Any> = ["users" :[uid: true,destinationUid:true]]
-        print("roomid= ",chatRoomUid)
         if(chatRoomUid == nil){
             Database.database().reference().child("chatRooms").childByAutoId().setValue(roomInfo)
         }else{
             let value : Dictionary<String,Any> = ["comments": ["uid":uid!,"message": msgTextField.text]]
-            print("mymessage ",msgTextField.text)
             print(value)
         Database.database().reference().child("chatRooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
         }

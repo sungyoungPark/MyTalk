@@ -57,7 +57,17 @@ class MyFriendViewController: UIViewController, UITableViewDelegate, UITableView
         let alert = UIAlertController(title: "친구추가", message: "이메일을 입력하세요", preferredStyle: .alert)
         alert.addTextField()
         alert.addAction(UIAlertAction(title: "확인", style: .default){(ok) in
-            self.viewModel?.addFriend(email: alert.textFields![0].text!)
+            let searchEmail = alert.textFields![0].text?.description.replacingOccurrences(of: ".", with: ",")
+            if (searchEmail != self.viewModel?.myProfile.value.email){
+                self.viewModel?.addFriend(email: alert.textFields![0].text!)
+            }
+            else{
+                self.dismiss(animated: true, completion: nil)
+                let errorAlert = self.alertControllerManager.makeAlertController(title: "오류", message: "잘 못된 이메일입니다.") { (UIAlertAction) in
+                    self.dismiss(animated: true, completion: nil)
+                }
+                self.present(errorAlert, animated: true, completion: nil)
+            }
         })
         alert.addAction(UIAlertAction(title: "취소", style: .default){(cancel) in self.dismiss(animated: true, completion: nil)})
         self.present(alert, animated: true, completion: nil)
@@ -119,9 +129,15 @@ class MyFriendViewController: UIViewController, UITableViewDelegate, UITableView
         if(indexPath.section == 2){   //채팅창으로
             performSegue(withIdentifier: "sgChat", sender: nil)
         }
-        else if(indexPath.section == 1){  //친구수락 여부 창
             
+        else if(indexPath.section == 1){  //친구수락 여부 창
+            let alert = alertControllerManager.makeAlertController(title: "", message: "친구를 추가하시겠습니까?") { (UIAlertAction) in
+                self.viewModel?.agreeFriendRequest(friendModel: (self.viewModel?.waitFriendList.value[indexPath.row])!)
+            }
+            alert.addAction(UIAlertAction(title: "취소", style: .default){(cancel) in self.dismiss(animated: true, completion: nil)})
+            self.present(alert, animated: true, completion: nil)
         }
+            
         else{ //프로필 수정창
             performSegue(withIdentifier: "sgChangeProfile", sender: nil)
         }
@@ -136,7 +152,6 @@ class MyFriendViewController: UIViewController, UITableViewDelegate, UITableView
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(segue.identifier)
         if segue.identifier == "sgChat"{
             if let cell = sender as? MyFriendTableViewCell , let indexPath = tv.indexPath(for: cell) {
                 if let vc = segue.destination as? ChatViewController{
