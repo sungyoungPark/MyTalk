@@ -9,7 +9,7 @@
 import UIKit
 //import Firebase
 
-class MyFriendViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MyFriendViewController: UIViewController {
     
     
     @IBOutlet var tv: UITableView!
@@ -73,6 +73,36 @@ class MyFriendViewController: UIViewController, UITableViewDelegate, UITableView
         self.present(alert, animated: true, completion: nil)
     }
     
+    
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "sgChat"{
+            if let cell = sender as? MyFriendTableViewCell , let indexPath = tv.indexPath(for: cell) {
+                if let vc = segue.destination as? ChatViewController{
+                    if (indexPath.section == 2){
+                        vc.destinationUid = viewModel?.modelArray.value[indexPath.row].uid
+                    }
+                }
+            }
+        }
+        
+        
+    }
+    
+    
+    
+}
+
+extension MyFriendViewController : UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -143,28 +173,19 @@ class MyFriendViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 0 {
+            return false
+        }
+        return true
     }
     
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "sgChat"{
-            if let cell = sender as? MyFriendTableViewCell , let indexPath = tv.indexPath(for: cell) {
-                if let vc = segue.destination as? ChatViewController{
-                    if (indexPath.section == 2){
-                        vc.destinationUid = viewModel?.modelArray.value[indexPath.row].uid
-                    }
-                }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if(indexPath.section != 0){
+            if editingStyle == .delete{
+                print("삭제")
             }
         }
-        
-        
     }
-    
-    
     
 }

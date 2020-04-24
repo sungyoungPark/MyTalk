@@ -99,7 +99,9 @@ class MyFriendViewModel {
         print(friendModel)
         let email = Auth.auth().currentUser?.email?.replacingOccurrences(of: ".", with: ",")
         Database.database().reference().child("users").child(email!).child("friendList").child(friendModel.email).child("isFriend").setValue(true)   //내 데이터에서 친구추가
-        Database.database().reference().child("users").child(friendModel.email).child("friendList").child(email!).child("isFriend").setValue(true)   //친구 데이터에서 내 데이터 추가
+        
+        let value = ["isFriend" : true,"name":myProfile.value.name,"profileImageURL":myProfileURL,"uid":myProfile.value.uid] as [String : Any]
+        Database.database().reference().child("users").child(friendModel.email).child("friendList").child(email!).setValue(value)   //친구 데이터에서 내 데이터 추가
     }
     
 }
