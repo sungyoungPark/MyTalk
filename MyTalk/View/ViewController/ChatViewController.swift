@@ -35,8 +35,6 @@ class ChatViewController: UIViewController {
             print(value)
         Database.database().reference().child("chatRooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
         }
-        
-        
     }
     
     

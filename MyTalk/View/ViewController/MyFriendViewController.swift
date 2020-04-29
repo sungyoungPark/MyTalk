@@ -86,16 +86,10 @@ class MyFriendViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "sgChat"{
-            if let cell = sender as? MyFriendTableViewCell , let indexPath = tv.indexPath(for: cell) {
-                if let vc = segue.destination as? ChatViewController{
-                    if (indexPath.section == 2){
-                        vc.destinationUid = viewModel?.modelArray.value[indexPath.row].uid
-                    }
-                }
+            if let vc = segue.destination as? ChatViewController{
+                vc.destinationUid = viewModel?.modelArray.value[sender as! Int].uid
             }
         }
-        
-        
     }
     
     
@@ -157,7 +151,7 @@ extension MyFriendViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.section)
         if(indexPath.section == 2){   //채팅창으로
-            performSegue(withIdentifier: "sgChat", sender: nil)
+            performSegue(withIdentifier: "sgChat", sender: indexPath.row)
         }
             
         else if(indexPath.section == 1){  //친구수락 여부 창
