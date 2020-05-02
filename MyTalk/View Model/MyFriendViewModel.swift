@@ -17,6 +17,7 @@ class MyFriendViewModel {
     var waitFriendList = Dynamic([MyFriendModel()])   //친구 추가를 기다리는 리스트
     var isUpdateFriend = Dynamic(false)  //친구 업데이트 추가
     
+    
     var myProfileURL = ""
     
     init() {
@@ -70,6 +71,11 @@ class MyFriendViewModel {
                         friend.name = child.value["name"]!.description
                         friend.uid = child.value["uid"]!.description
                         friend.email = child.key
+                        if child.value["chatRoomUid"] != nil{
+                            print("채팅 기록 있음")
+                            print(child.value["chatRoomUid"])
+                            friend.chatRoomUid = child.value["chatRoomUid"]!.description
+                        }
                         URLSession.shared.dataTask(with:  URL(string: child.value["profileImageURL"]!.description)!) { (Data, URLResponse, Error) in
                             DispatchQueue.main.async {
                                 let profile = UIImage(data: Data!)
@@ -79,7 +85,7 @@ class MyFriendViewModel {
                         }.resume()
                     }
                 }
-                print("친구 있음")
+               // print("친구 있음")
             }
             
         })
@@ -103,5 +109,7 @@ class MyFriendViewModel {
         let value = ["isFriend" : true,"name":myProfile.value.name,"profileImageURL":myProfileURL,"uid":myProfile.value.uid] as [String : Any]
         Database.database().reference().child("users").child(friendModel.email).child("friendList").child(email!).setValue(value)   //친구 데이터에서 내 데이터 추가
     }
+    
+    
     
 }

@@ -88,6 +88,9 @@ class MyFriendViewController: UIViewController {
         if segue.identifier == "sgChat"{
             if let vc = segue.destination as? ChatViewController{
                 vc.destinationUid = viewModel?.modelArray.value[sender as! Int].uid
+                vc.chatRoomUid = viewModel?.modelArray.value[sender as! Int].chatRoomUid
+                vc.destinationEmail = viewModel?.modelArray.value[sender as! Int].email
+                
             }
         }
     }

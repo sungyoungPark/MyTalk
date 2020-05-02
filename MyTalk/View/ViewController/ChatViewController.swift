@@ -12,6 +12,7 @@ import Firebase
 class ChatViewController: UIViewController {
     
     var destinationUid : String?
+    var destinationEmail : String?
     
     var uid : String?
     var chatRoomUid : String?
@@ -22,23 +23,40 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
         
+        findChatRoom()
         uid = Auth.auth().currentUser?.uid
         checkChatRoom()
     }
     
+    func findChatRoom(){
+        if chatRoomUid == ""{
+            print("처음 채팅")
+        }
+        else{
+            print("처음 채팅 아님")
+        }
+    }
+    
+    
     @IBAction func sendMSG(_ sender: Any) {
         let roomInfo : Dictionary<String,Any> = ["users" :[uid: true,destinationUid:true]]
-        if(chatRoomUid == nil){
+        if(chatRoomUid == ""){
+            print("채팅방 생성")
             Database.database().reference().child("chatRooms").childByAutoId().setValue(roomInfo)
+            checkChatRoom()
+            
         }else{
-            let value : Dictionary<String,Any> = ["comments": ["uid":uid!,"message": msgTextField.text]]
-            print(value)
-        Database.database().reference().child("chatRooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
+            print("기존 채팅방 사용")
+            let value : Dictionary<String,Any> = ["comment": ["uid":uid!,"message": msgTextField.text!]]
+            Database.database().reference().child("chatRooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
+            print("기존 채팅방 끝")
         }
     }
     
     
     func checkChatRoom(){
+        print("check")
+        let myEmail = Auth.auth().currentUser?.email?.replacingOccurrences(of: ".", with: ",")
         Database.database().reference().child("chatRooms").queryOrdered(byChild: "users/" + uid!).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value) { (DataSnapshot) in
             for item in DataSnapshot.children.allObjects as! [DataSnapshot]{
                 
@@ -46,6 +64,9 @@ class ChatViewController: UIViewController {
                     let check = chatRoomDic["users"]
                     if (check![self.destinationUid as Any] as! Bool == true){
                         self.chatRoomUid = item.key
+                        Database.database().reference().child("users/"+myEmail!+"/friendList/"+self.destinationEmail!+"/chatRoomUid").setValue(self.chatRoomUid)
+                        
+                        Database.database().reference().child("users/"+self.destinationEmail!+"/friendList/"+myEmail!+"/chatRoomUid").setValue(self.chatRoomUid)
                     }
                     
                 }

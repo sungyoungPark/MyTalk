@@ -13,4 +13,5 @@ struct MyFriendModel {
     var name = ""
     var uid = ""
     var email = ""
+    var chatRoomUid = ""
 }
