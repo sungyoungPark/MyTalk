@@ -32,6 +32,7 @@
 		5BCF30DF244AE103004ECCB7 /* BindingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF30DE244AE103004ECCB7 /* BindingTextField.swift */; };
 		5BCF30E4244AF483004ECCB7 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF30E3244AF483004ECCB7 /* Dynamic.swift */; };
 		5BCF30E7244B0053004ECCB7 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF30E6244B0053004ECCB7 /* SignUpModel.swift */; };
+		5BD7C065245DDA0A000943DC /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD7C064245DDA0A000943DC /* ChatViewModel.swift */; };
 		BC33912B2056796547275FB2 /* Pods_MyTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3E95D196398782585CBF82 /* Pods_MyTalk.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		5BCF30DE244AE103004ECCB7 /* BindingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingTextField.swift; sourceTree = "<group>"; };
 		5BCF30E3244AF483004ECCB7 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		5BCF30E6244B0053004ECCB7 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		5BD7C064245DDA0A000943DC /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		AB3E95D196398782585CBF82 /* Pods_MyTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31CD358C70D1B654C6A5410 /* Pods-MyTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTalk.debug.xcconfig"; path = "Target Support Files/Pods-MyTalk/Pods-MyTalk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +126,7 @@
 				5B244F3A243F41A80048833A /* LoginViewModel.swift */,
 				5BAC90F824461C11002092C3 /* SignUpViewModel.swift */,
 				5BCE71DC244CD5C300DDC579 /* MyFriendViewModel.swift */,
+				5BD7C064245DDA0A000943DC /* ChatViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				5BCF30DF244AE103004ECCB7 /* BindingTextField.swift in Sources */,
 				5B09CB00243E2C590057FCF9 /* SplashViewModel.swift in Sources */,
 				5B1B101D244F0C5A00402AFB /* ChatViewController.swift in Sources */,
+				5BD7C065245DDA0A000943DC /* ChatViewModel.swift in Sources */,
 				5B244F3B243F41A80048833A /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

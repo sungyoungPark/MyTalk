@@ -87,9 +87,9 @@ class MyFriendViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "sgChat"{
             if let vc = segue.destination as? ChatViewController{
-                vc.destinationUid = viewModel?.modelArray.value[sender as! Int].uid
-                vc.chatRoomUid = viewModel?.modelArray.value[sender as! Int].chatRoomUid
-                vc.destinationEmail = viewModel?.modelArray.value[sender as! Int].email
+                vc.viewModel?.destinationUid = viewModel?.modelArray.value[sender as! Int].uid
+                vc.viewModel?.chatRoomUid = viewModel?.modelArray.value[sender as! Int].chatRoomUid
+                vc.viewModel?.destinationEmail = viewModel?.modelArray.value[sender as! Int].email
                 
             }
         }
