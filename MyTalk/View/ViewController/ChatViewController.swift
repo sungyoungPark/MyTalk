@@ -27,7 +27,7 @@ class ChatViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         
         findChatRoom()
-        viewModel.checkChatRoom()
+        //viewModel.checkChatRoom()
     }
     
     func findChatRoom(){

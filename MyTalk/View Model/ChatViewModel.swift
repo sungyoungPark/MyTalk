@@ -23,6 +23,7 @@ class ChatViewModel{
         print(chatRoomUid)
         print(uid)
         print(destinationUid)
+        print(msg)
         let roomInfo : Dictionary<String,Any> = ["users" :[uid: true,destinationUid:true]]
         if(chatRoomUid == ""){
             print("채팅방 생성")
@@ -31,7 +32,6 @@ class ChatViewModel{
             
         }else{
             print("기존 채팅방 사용")
-            print(msg)
             let value : Dictionary<String,Any> = ["comment": ["uid":uid!,"message": msg]]
             Database.database().reference().child("chatRooms").child(chatRoomUid).child("comments").childByAutoId().setValue(value)
             print("기존 채팅방 끝")
@@ -40,17 +40,21 @@ class ChatViewModel{
     
     
     func checkChatRoom(){  //viewModel로
-        print("check")
+        print("check 확인")
         let myEmail = Auth.auth().currentUser?.email?.replacingOccurrences(of: ".", with: ",")
         Database.database().reference().child("chatRooms").queryOrdered(byChild: "users/" + uid!).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value) { (DataSnapshot) in
             for item in DataSnapshot.children.allObjects as! [DataSnapshot]{
                 
                 if let chatRoomDic = item.value as? [String:AnyObject]{
                     let check = chatRoomDic["users"]
+                    print(check,"이거 확인")
                     if (check![self.destinationUid as Any] as! Bool == true){
                         self.chatRoomUid = item.key
                         Database.database().reference().child("users/"+myEmail!+"/friendList/"+self.destinationEmail!+"/chatRoomUid").setValue(self.chatRoomUid)
                         Database.database().reference().child("users/"+self.destinationEmail!+"/friendList/"+myEmail!+"/chatRoomUid").setValue(self.chatRoomUid)
+                        
+                        let value : Dictionary<String,Any> = ["comment": ["uid":self.uid!,"message": self.msg]]
+                        Database.database().reference().child("chatRooms").child(self.chatRoomUid).child("comments").childByAutoId().setValue(value)
                     }
                     
                 }
