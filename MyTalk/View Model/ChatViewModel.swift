@@ -20,10 +20,6 @@ class ChatViewModel{
     var msg : String?
     
     func sendMSG(){
-        print(chatRoomUid)
-        print(uid)
-        print(destinationUid)
-        print(msg)
         let roomInfo : Dictionary<String,Any> = ["users" :[uid: true,destinationUid:true]]
         if(chatRoomUid == ""){
             print("채팅방 생성")
@@ -44,11 +40,9 @@ class ChatViewModel{
         let myEmail = Auth.auth().currentUser?.email?.replacingOccurrences(of: ".", with: ",")
         Database.database().reference().child("chatRooms").queryOrdered(byChild: "users/" + uid!).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value) { (DataSnapshot) in
             for item in DataSnapshot.children.allObjects as! [DataSnapshot]{
-                
                 if let chatRoomDic = item.value as? [String:AnyObject]{
                     let check = chatRoomDic["users"]
-                    print(check,"이거 확인")
-                    if (check![self.destinationUid as Any] as! Bool == true){
+                    if (check![self.destinationUid as Any] as? Bool != nil && check![self.destinationUid as Any] as! Bool == true){
                         self.chatRoomUid = item.key
                         Database.database().reference().child("users/"+myEmail!+"/friendList/"+self.destinationEmail!+"/chatRoomUid").setValue(self.chatRoomUid)
                         Database.database().reference().child("users/"+self.destinationEmail!+"/friendList/"+myEmail!+"/chatRoomUid").setValue(self.chatRoomUid)

@@ -73,7 +73,6 @@ class MyFriendViewModel {
                         friend.email = child.key
                         if child.value["chatRoomUid"] != nil{
                             print("채팅 기록 있음")
-                            print(child.value["chatRoomUid"])
                             friend.chatRoomUid = child.value["chatRoomUid"]!.description
                         }
                         URLSession.shared.dataTask(with:  URL(string: child.value["profileImageURL"]!.description)!) { (Data, URLResponse, Error) in
