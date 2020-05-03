@@ -11,12 +11,12 @@ import Firebase
 
 class ChatViewController: UIViewController {
     
-    var viewModel : ChatViewModel?
+    var viewModel = ChatViewModel()
     
     @IBOutlet var msgTextField: BindingTextField!{
         didSet{
             msgTextField.bind { [weak self] msg in
-                self?.viewModel!.msg = msg
+                self?.viewModel.msg = msg
             }
         }
     }
@@ -26,14 +26,12 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
         
-        viewModel = ChatViewModel()
-        
         findChatRoom()
-        viewModel?.checkChatRoom()
+        viewModel.checkChatRoom()
     }
     
     func findChatRoom(){
-        if viewModel?.chatRoomUid == ""{
+        if viewModel.chatRoomUid == ""{
             print("처음 채팅")
         }
         else{
@@ -43,7 +41,7 @@ class ChatViewController: UIViewController {
     
     
     @IBAction func sendMSG(_ sender: Any) {
-        viewModel?.sendMSG()
+        viewModel.sendMSG()
     }
     
     
