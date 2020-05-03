@@ -268,6 +268,7 @@
                     <navigationItem key="navigationItem" id="6h1-8X-Ube"/>
                     <connections>
                         <outlet property="msgTextField" destination="pgW-dq-KD5" id="2pc-mU-VZr"/>
+                        <outlet property="sendBtn" destination="UFw-eT-Vfe" id="GGf-Vy-hTW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oET-78-xrz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

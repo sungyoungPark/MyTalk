@@ -152,7 +152,6 @@ extension MyFriendViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.section)
         if(indexPath.section == 2){   //채팅창으로
             performSegue(withIdentifier: "sgChat", sender: indexPath.row)
         }

@@ -15,6 +15,8 @@ class ChatViewModel{
     var destinationUid : String?
     var destinationEmail : String?
     
+    var isCreateChatRoom = Dynamic(true)
+    
     var chatRoomUid = ""
     
     var msg : String?
@@ -23,6 +25,7 @@ class ChatViewModel{
         let roomInfo : Dictionary<String,Any> = ["users" :[uid: true,destinationUid:true]]
         if(chatRoomUid == ""){
             print("채팅방 생성")
+            isCreateChatRoom.value = false
             Database.database().reference().child("chatRooms").childByAutoId().setValue(roomInfo)
             checkChatRoom()
             
@@ -44,6 +47,7 @@ class ChatViewModel{
                     let check = chatRoomDic["users"]
                     if (check![self.destinationUid as Any] as? Bool != nil && check![self.destinationUid as Any] as! Bool == true){
                         self.chatRoomUid = item.key
+                        self.isCreateChatRoom.value = true
                         Database.database().reference().child("users/"+myEmail!+"/friendList/"+self.destinationEmail!+"/chatRoomUid").setValue(self.chatRoomUid)
                         Database.database().reference().child("users/"+self.destinationEmail!+"/friendList/"+myEmail!+"/chatRoomUid").setValue(self.chatRoomUid)
                         

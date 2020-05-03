@@ -21,13 +21,31 @@ class ChatViewController: UIViewController {
         }
     }
     
+    @IBOutlet var sendBtn: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
-        
         findChatRoom()
+        //sendBtn.isEnabled = false
+        bindViewModel()
         //viewModel.checkChatRoom()
+    }
+    
+    func bindViewModel(){
+        
+        viewModel.isCreateChatRoom.bind { (flag) in
+            DispatchQueue.main.async {
+                if (flag == true){
+                    self.sendBtn.isEnabled = true
+                }
+                else{
+                    self.sendBtn.isEnabled = false
+                }
+            }
+        }
+        
     }
     
     func findChatRoom(){
@@ -42,6 +60,7 @@ class ChatViewController: UIViewController {
     
     @IBAction func sendMSG(_ sender: Any) {
         viewModel.sendMSG()
+        msgTextField.text = ""
     }
     
     
