@@ -254,13 +254,35 @@
                                     <action selector="sendMSG:" destination="ArU-HR-2Pu" eventType="touchUpInside" id="dJW-6X-xAB"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KQm-GC-wk8">
+                                <rect key="frame" x="0.0" y="88" width="414" height="655"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="msgCell" rowHeight="70" id="5dX-Eb-iSE">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5dX-Eb-iSE" id="oSd-S1-hdp">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ArU-HR-2Pu" id="hn2-cj-eKN"/>
+                                    <outlet property="delegate" destination="ArU-HR-2Pu" id="NSH-UI-mxM"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VFd-4N-bIg" firstAttribute="bottom" secondItem="UFw-eT-Vfe" secondAttribute="bottom" constant="32" id="ALH-iD-R7f"/>
                             <constraint firstItem="pgW-dq-KD5" firstAttribute="leading" secondItem="VFd-4N-bIg" secondAttribute="leading" constant="20" id="Ukj-r1-DgY"/>
+                            <constraint firstItem="KQm-GC-wk8" firstAttribute="top" secondItem="VFd-4N-bIg" secondAttribute="top" id="WkB-tH-WQD"/>
                             <constraint firstItem="VFd-4N-bIg" firstAttribute="bottom" secondItem="pgW-dq-KD5" secondAttribute="bottom" constant="28" id="f7b-bk-Vw2"/>
+                            <constraint firstItem="KQm-GC-wk8" firstAttribute="trailing" secondItem="VFd-4N-bIg" secondAttribute="trailing" id="gFb-uP-5pU"/>
+                            <constraint firstItem="KQm-GC-wk8" firstAttribute="leading" secondItem="VFd-4N-bIg" secondAttribute="leading" id="ioq-MH-NNz"/>
                             <constraint firstItem="VFd-4N-bIg" firstAttribute="trailing" secondItem="UFw-eT-Vfe" secondAttribute="trailing" constant="28" id="kcU-fk-vCF"/>
+                            <constraint firstItem="pgW-dq-KD5" firstAttribute="top" secondItem="KQm-GC-wk8" secondAttribute="bottom" constant="8" id="ntF-W7-fBb"/>
                             <constraint firstItem="UFw-eT-Vfe" firstAttribute="leading" secondItem="pgW-dq-KD5" secondAttribute="trailing" constant="26" id="rgn-ax-QfO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VFd-4N-bIg"/>
@@ -269,11 +291,12 @@
                     <connections>
                         <outlet property="msgTextField" destination="pgW-dq-KD5" id="2pc-mU-VZr"/>
                         <outlet property="sendBtn" destination="UFw-eT-Vfe" id="GGf-Vy-hTW"/>
+                        <outlet property="tv" destination="KQm-GC-wk8" id="enQ-9z-Rlx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oET-78-xrz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5820" y="-672"/>
+            <point key="canvasLocation" x="5817.3913043478269" y="-672.32142857142856"/>
         </scene>
         <!--chat-->
         <scene sceneID="G53-aZ-fTa">

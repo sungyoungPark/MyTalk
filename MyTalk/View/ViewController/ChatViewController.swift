@@ -22,13 +22,14 @@ class ChatViewController: UIViewController {
     }
     
     @IBOutlet var sendBtn: UIButton!
+    @IBOutlet var tv: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
-        findChatRoom()
         //sendBtn.isEnabled = false
+        viewModel.findChatRoom()
         bindViewModel()
         //viewModel.checkChatRoom()
     }
@@ -46,16 +47,15 @@ class ChatViewController: UIViewController {
             }
         }
         
+        viewModel.comments.bind { (log) in
+            DispatchQueue.main.async {
+                self.tv.reloadData()
+            }
+        }
+        
     }
     
-    func findChatRoom(){
-        if viewModel.chatRoomUid == ""{
-            print("처음 채팅")
-        }
-        else{
-            print("처음 채팅 아님")
-        }
-    }
+    
     
     
     @IBAction func sendMSG(_ sender: Any) {
@@ -73,5 +73,20 @@ class ChatViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+}
+
+
+extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.comments.value.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tv.dequeueReusableCell(withIdentifier: "msgCell", for: indexPath)
+        cell.textLabel?.text = viewModel.comments.value[indexPath.row].values.description
+        
+        return cell
+    }
     
 }

@@ -20,6 +20,17 @@ class ChatViewModel{
     var chatRoomUid = ""
     
     var msg : String?
+    var comments = Dynamic([[String:String]]())
+    
+    func findChatRoom() {
+       if chatRoomUid == ""{
+            print("처음 채팅")
+        }
+        else{
+            print("처음 채팅 아님")
+            getMsgList()
+        }
+    }
     
     func sendMSG(){
         let roomInfo : Dictionary<String,Any> = ["users" :[uid: true,destinationUid:true]]
@@ -33,8 +44,10 @@ class ChatViewModel{
             print("기존 채팅방 사용")
             let value : Dictionary<String,Any> = ["comment": ["uid":uid!,"message": msg]]
             Database.database().reference().child("chatRooms").child(chatRoomUid).child("comments").childByAutoId().setValue(value)
+            getMsgList()
             print("기존 채팅방 끝")
         }
+
     }
     
     
@@ -53,6 +66,7 @@ class ChatViewModel{
                         
                         let value : Dictionary<String,Any> = ["comment": ["uid":self.uid!,"message": self.msg]]
                         Database.database().reference().child("chatRooms").child(self.chatRoomUid).child("comments").childByAutoId().setValue(value)
+                        self.getMsgList()
                     }
                     
                 }
@@ -61,6 +75,19 @@ class ChatViewModel{
             }
         }
         print("check 끝")
+    }
+    
+    func getMsgList(){
+        Database.database().reference().child("chatRooms").child(chatRoomUid).child("comments").observe(DataEventType.value) { (datasnapshot) in
+            self.comments.value.removeAll()
+            
+            for item in datasnapshot.children.allObjects as! [DataSnapshot]{
+                let log = item.value as? [String:AnyObject]
+                let logUpdate = [log!["comment"]!["uid"]?.description:log!["comment"]!["message"]?.description]
+                self.comments.value.append(logUpdate as! [String : String])
+            }
+            print(self.comments.value)
+        }
     }
     
 }
