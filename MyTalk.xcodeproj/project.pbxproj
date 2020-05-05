@@ -19,6 +19,8 @@
 		5B2DCD1C244CB5F900600416 /* MyFriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2DCD1B244CB5F900600416 /* MyFriendModel.swift */; };
 		5B308711244D9EC7006CC5BF /* MyTalkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B308710244D9EC7006CC5BF /* MyTalkUITests.swift */; };
 		5B30871A244DE9BA006CC5BF /* MyFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B308719244DE9BA006CC5BF /* MyFriendTableViewCell.swift */; };
+		5B42CB5D2461E4CA004B0600 /* MyMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B42CB5C2461E4CA004B0600 /* MyMessageCell.swift */; };
+		5B42CB5F2461E4EB004B0600 /* FriendMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B42CB5E2461E4EB004B0600 /* FriendMessageCell.swift */; };
 		5B4BE21D24398FEB00A43683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE21C24398FEB00A43683 /* AppDelegate.swift */; };
 		5B4BE21F24398FEB00A43683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE21E24398FEB00A43683 /* SceneDelegate.swift */; };
 		5B4BE22124398FEB00A43683 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE22024398FEB00A43683 /* SplashViewController.swift */; };
@@ -62,6 +64,8 @@
 		5B308710244D9EC7006CC5BF /* MyTalkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTalkUITests.swift; sourceTree = "<group>"; };
 		5B308712244D9EC7006CC5BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B308719244DE9BA006CC5BF /* MyFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendTableViewCell.swift; sourceTree = "<group>"; };
+		5B42CB5C2461E4CA004B0600 /* MyMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMessageCell.swift; sourceTree = "<group>"; };
+		5B42CB5E2461E4EB004B0600 /* FriendMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendMessageCell.swift; sourceTree = "<group>"; };
 		5B4BE21924398FEB00A43683 /* MyTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B4BE21C24398FEB00A43683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B4BE21E24398FEB00A43683 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				5B308719244DE9BA006CC5BF /* MyFriendTableViewCell.swift */,
+				5B42CB5C2461E4CA004B0600 /* MyMessageCell.swift */,
+				5B42CB5E2461E4EB004B0600 /* FriendMessageCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -403,10 +409,12 @@
 				5B4BE21D24398FEB00A43683 /* AppDelegate.swift in Sources */,
 				5BAC90F924461C11002092C3 /* SignUpViewModel.swift in Sources */,
 				5B30871A244DE9BA006CC5BF /* MyFriendTableViewCell.swift in Sources */,
+				5B42CB5D2461E4CA004B0600 /* MyMessageCell.swift in Sources */,
 				5B4BE21F24398FEB00A43683 /* SceneDelegate.swift in Sources */,
 				5B2DCD17244C95DC00600416 /* LoginModel.swift in Sources */,
 				5B09CB03243E2CE10057FCF9 /* AlertControllerService.swift in Sources */,
 				5BCF30DF244AE103004ECCB7 /* BindingTextField.swift in Sources */,
+				5B42CB5F2461E4EB004B0600 /* FriendMessageCell.swift in Sources */,
 				5B09CB00243E2C590057FCF9 /* SplashViewModel.swift in Sources */,
 				5B1B101D244F0C5A00402AFB /* ChatViewController.swift in Sources */,
 				5BD7C065245DDA0A000943DC /* ChatViewModel.swift in Sources */,

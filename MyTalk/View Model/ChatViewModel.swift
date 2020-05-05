@@ -86,7 +86,6 @@ class ChatViewModel{
                 let logUpdate = [log!["comment"]!["uid"]?.description:log!["comment"]!["message"]?.description]
                 self.comments.value.append(logUpdate as! [String : String])
             }
-            print(self.comments.value)
         }
     }
     
