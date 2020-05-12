@@ -14,6 +14,7 @@ class ChatViewModel{
     var uid = Auth.auth().currentUser?.uid
     var destinationUid : String?
     var destinationEmail : String?
+    var destinationProfile : UIImage?
     
     var isCreateChatRoom = Dynamic(true)
     

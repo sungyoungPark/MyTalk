@@ -90,7 +90,7 @@ class MyFriendViewController: UIViewController {
                 vc.viewModel.destinationUid = viewModel?.modelArray.value[sender as! Int].uid
                 vc.viewModel.chatRoomUid = (viewModel?.modelArray.value[sender as! Int].chatRoomUid)!
                 vc.viewModel.destinationEmail = viewModel?.modelArray.value[sender as! Int].email
-                
+                vc.viewModel.destinationProfile = viewModel?.modelArray.value[sender as! Int].profileImage
             }
         }
     }

@@ -31,6 +31,8 @@ class ChatViewController: UIViewController {
         //sendBtn.isEnabled = false
         viewModel.findChatRoom()
         bindViewModel()
+        print("chat comp")
+        //print(viewModel)
         //viewModel.checkChatRoom()
     }
     
@@ -83,10 +85,26 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tv.dequeueReusableCell(withIdentifier: "msgCell", for: indexPath)
-        cell.textLabel?.text = viewModel.comments.value[indexPath.row].values.description
+        print("에러확인1")
         
-        return cell
+        if(viewModel.comments.value[indexPath.row].keys.first == viewModel.uid){
+            let cell = tv.dequeueReusableCell(withIdentifier: "myMsgCell", for: indexPath) as! MyMessageCell
+            cell.msgLabel.text = viewModel.comments.value[indexPath.row].values.first
+            cell.msgLabel.numberOfLines = 0
+            return cell
+        }
+        else{  //상대방이 채팅한 거에 대하여 구현
+            let cell = tv.dequeueReusableCell(withIdentifier: "friendMsgCell", for: indexPath) as! FriendMessageCell
+            cell.textLabel?.text = viewModel.comments.value[indexPath.row].values.description
+            print("에러확인 1-3")
+            return cell
+        }
+       
+        // return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
 }
