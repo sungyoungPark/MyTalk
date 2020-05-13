@@ -85,8 +85,6 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("에러확인1")
-        
         if(viewModel.comments.value[indexPath.row].keys.first == viewModel.uid){
             let cell = tv.dequeueReusableCell(withIdentifier: "myMsgCell", for: indexPath) as! MyMessageCell
             cell.msgLabel.text = viewModel.comments.value[indexPath.row].values.first
@@ -95,8 +93,10 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
         }
         else{  //상대방이 채팅한 거에 대하여 구현
             let cell = tv.dequeueReusableCell(withIdentifier: "friendMsgCell", for: indexPath) as! FriendMessageCell
-            cell.textLabel?.text = viewModel.comments.value[indexPath.row].values.description
-            print("에러확인 1-3")
+           // cell.nameLabel.text = viewModel.
+            cell.msgLabel.text = viewModel.comments.value[indexPath.row].values.first
+            cell.profileImageView.image = viewModel.destinationProfile
+            
             return cell
         }
        
