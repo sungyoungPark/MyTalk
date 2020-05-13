@@ -25,10 +25,6 @@ class MyFriendViewController: UIViewController {
         tv.dataSource = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.tabBarController?.tabBar.isHidden = false
-    }
     
     func bindViewModel(){
         if let viewModel = viewModel{
@@ -87,10 +83,7 @@ class MyFriendViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "sgChat"{
             if let vc = segue.destination as? ChatViewController{
-                vc.viewModel.destinationUid = viewModel?.modelArray.value[sender as! Int].uid
-                vc.viewModel.chatRoomUid = (viewModel?.modelArray.value[sender as! Int].chatRoomUid)!
-                vc.viewModel.destinationEmail = viewModel?.modelArray.value[sender as! Int].email
-                vc.viewModel.destinationProfile = viewModel?.modelArray.value[sender as! Int].profileImage
+                vc.viewModel.destinationFriend.value = (viewModel?.modelArray.value[sender as! Int])!
             }
         }
     }
@@ -110,7 +103,12 @@ extension MyFriendViewController : UITableViewDelegate, UITableViewDataSource{
             return "친구"
         }
         else if (section == 1){
-            return "친구 요청"
+            if(viewModel?.waitFriendList.value.count == 0){
+                return nil
+            }
+            else{
+                return "친구 요청"
+            }
         }
         else{
             return "내 프로필"

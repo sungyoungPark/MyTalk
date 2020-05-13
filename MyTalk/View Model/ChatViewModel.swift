@@ -11,7 +11,9 @@ import Firebase
 
 class ChatViewModel{
     
-    var uid = Auth.auth().currentUser?.uid
+    var destinationFriend = Dynamic(MyFriendModel())
+    
+    var uid = Auth.auth().currentUser?.uid   //내 uid
     var destinationUid : String?
     var destinationEmail : String?
     var destinationProfile : UIImage?
@@ -24,7 +26,12 @@ class ChatViewModel{
     var comments = Dynamic([[String:String]]())
     
     func findChatRoom() {
-       if chatRoomUid == ""{
+        chatRoomUid = destinationFriend.value.chatRoomUid
+        destinationUid = destinationFriend.value.uid
+        destinationEmail = destinationFriend.value.email
+        destinationProfile = destinationFriend.value.profileImage
+        
+        if chatRoomUid == ""{
             print("처음 채팅")
         }
         else{
@@ -48,7 +55,7 @@ class ChatViewModel{
             getMsgList()
             print("기존 채팅방 끝")
         }
-
+        
     }
     
     

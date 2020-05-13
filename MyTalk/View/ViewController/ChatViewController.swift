@@ -29,12 +29,18 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
         //sendBtn.isEnabled = false
+        navigationItem.title = viewModel.destinationFriend.value.name  //채팅방 이름 설정
         viewModel.findChatRoom()
         bindViewModel()
-        print("chat comp")
+       
         //print(viewModel)
         //viewModel.checkChatRoom()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     
     func bindViewModel(){
         
@@ -52,6 +58,10 @@ class ChatViewController: UIViewController {
         viewModel.comments.bind { (log) in
             DispatchQueue.main.async {
                 self.tv.reloadData()
+                if(self.viewModel.comments.value.count > 0){  //채팅 마지막으로 테이블뷰 이동
+                    self.tv.scrollToRow(at: IndexPath(item: self.viewModel.comments.value.count-1, section: 0), at: UITableView.ScrollPosition.bottom, animated: false)
+                }
+                
             }
         }
         
@@ -93,9 +103,10 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
         }
         else{  //상대방이 채팅한 거에 대하여 구현
             let cell = tv.dequeueReusableCell(withIdentifier: "friendMsgCell", for: indexPath) as! FriendMessageCell
-           // cell.nameLabel.text = viewModel.
+        
             cell.msgLabel.text = viewModel.comments.value[indexPath.row].values.first
             cell.profileImageView.image = viewModel.destinationProfile
+            cell.nameLabel.text = viewModel.destinationFriend.value.name
             
             return cell
         }
