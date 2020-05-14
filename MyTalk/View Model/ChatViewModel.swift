@@ -41,21 +41,23 @@ class ChatViewModel{
     }
     
     func sendMSG(){
-        let roomInfo : Dictionary<String,Any> = ["users" :[uid: true,destinationUid:true]]
-        if(chatRoomUid == ""){
-            print("채팅방 생성")
-            isCreateChatRoom.value = false
-            Database.database().reference().child("chatRooms").childByAutoId().setValue(roomInfo)
-            checkChatRoom()
-            
-        }else{
-            print("기존 채팅방 사용")
-            let value : Dictionary<String,Any> = ["comment": ["uid":uid!,"message": msg]]
-            Database.database().reference().child("chatRooms").child(chatRoomUid).child("comments").childByAutoId().setValue(value)
-            getMsgList()
-            print("기존 채팅방 끝")
+        if msg != nil{  //아무것도 안적혀있으면 채팅 안됨
+            let roomInfo : Dictionary<String,Any> = ["users" :[uid: true,destinationUid:true]]
+            if(chatRoomUid == ""){
+                print("채팅방 생성")
+                isCreateChatRoom.value = false
+                Database.database().reference().child("chatRooms").childByAutoId().setValue(roomInfo)
+                checkChatRoom()
+                
+            }else{
+                print("기존 채팅방 사용")
+                let value : Dictionary<String,Any> = ["comment": ["uid":uid!,"message": msg]]
+                Database.database().reference().child("chatRooms").child(chatRoomUid).child("comments").childByAutoId().setValue(value)
+                getMsgList()
+                print("기존 채팅방 끝")
+            }
         }
-        
+        msg = nil
     }
     
     

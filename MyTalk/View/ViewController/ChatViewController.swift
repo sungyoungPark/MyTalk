@@ -23,24 +23,52 @@ class ChatViewController: UIViewController {
     
     @IBOutlet var sendBtn: UIButton!
     @IBOutlet var tv: UITableView!
+    @IBOutlet var bottomConstraint: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
         //sendBtn.isEnabled = false
+        
+        //키보드 탭 제스쳐 추가
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         navigationItem.title = viewModel.destinationFriend.value.name  //채팅방 이름 설정
         viewModel.findChatRoom()
         bindViewModel()
        
-        //print(viewModel)
         //viewModel.checkChatRoom()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    @objc func keyboardWillShow(notification : Notification){  //keyboard 나올때
+        if let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue{
+            self.bottomConstraint.constant = keyboardSize.height
+        }
+        
+        UIView.animate(withDuration: 0, animations: { self.view.layoutIfNeeded() })
+    }
+    
+    @objc func keyboardWillHide(notification : Notification){   //keyboard
+        self.bottomConstraint.constant = 25
+        self.view.layoutIfNeeded()
+    }
+    
+    
+    @objc func dismissKeyboard(){
+        self.view.endEditing(true)
+    }
     
     func bindViewModel(){
         
@@ -72,7 +100,7 @@ class ChatViewController: UIViewController {
     
     @IBAction func sendMSG(_ sender: Any) {
         viewModel.sendMSG()
-        msgTextField.text = ""
+        msgTextField.text = ""  //채팅 끝나면 textfield 공백으로
     }
     
     
@@ -118,4 +146,15 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
         return UITableView.automaticDimension
     }
     
+}
+
+extension ChatViewController : UITextFieldDelegate{
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+          view.endEditing(true)
+      }
+      
+      func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        msgTextField.resignFirstResponder()
+          return true
+      }
 }
