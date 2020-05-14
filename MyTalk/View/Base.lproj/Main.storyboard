@@ -351,6 +351,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="pgW-dq-KD5" firstAttribute="width" secondItem="ErN-rt-7Gl" secondAttribute="width" multiplier="0.748792" id="IUS-cd-pfy"/>
                             <constraint firstItem="pgW-dq-KD5" firstAttribute="leading" secondItem="VFd-4N-bIg" secondAttribute="leading" constant="20" id="Ukj-r1-DgY"/>
                             <constraint firstItem="KQm-GC-wk8" firstAttribute="top" secondItem="VFd-4N-bIg" secondAttribute="top" id="WkB-tH-WQD"/>
                             <constraint firstItem="UFw-eT-Vfe" firstAttribute="centerY" secondItem="pgW-dq-KD5" secondAttribute="centerY" id="bix-5l-b9Z"/>
