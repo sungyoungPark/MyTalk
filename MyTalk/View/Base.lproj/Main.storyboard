@@ -273,20 +273,30 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ri-EJ-Gub">
+                                                    <rect key="frame" x="300" y="34" width="27" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="lVP-FO-FIx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oSd-S1-hdp" secondAttribute="leadingMargin" constant="65" id="4f1-nh-Cjx"/>
+                                                <constraint firstItem="9Ri-EJ-Gub" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oSd-S1-hdp" secondAttribute="leading" constant="20" symbolic="YES" id="66a-Do-xan"/>
                                                 <constraint firstItem="E3e-1F-Ocw" firstAttribute="bottom" secondItem="lVP-FO-FIx" secondAttribute="bottom" constant="10" id="At1-4E-8MA"/>
                                                 <constraint firstItem="lVP-FO-FIx" firstAttribute="top" secondItem="oSd-S1-hdp" secondAttribute="topMargin" constant="3" id="IGa-HK-7uU"/>
                                                 <constraint firstItem="E3e-1F-Ocw" firstAttribute="leading" secondItem="lVP-FO-FIx" secondAttribute="leading" constant="-10" id="Kvg-MT-0fW"/>
                                                 <constraint firstItem="lVP-FO-FIx" firstAttribute="trailing" secondItem="oSd-S1-hdp" secondAttribute="trailingMargin" id="NKf-za-lRq"/>
+                                                <constraint firstAttribute="bottom" secondItem="9Ri-EJ-Gub" secondAttribute="bottom" constant="4" id="WKM-XQ-s0C"/>
                                                 <constraint firstItem="E3e-1F-Ocw" firstAttribute="top" secondItem="lVP-FO-FIx" secondAttribute="top" constant="-10" id="fnz-iI-UDD"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="lVP-FO-FIx" secondAttribute="bottom" constant="3" id="g26-3H-QYW"/>
                                                 <constraint firstItem="E3e-1F-Ocw" firstAttribute="trailing" secondItem="lVP-FO-FIx" secondAttribute="trailing" constant="15" id="klq-Bt-H3z"/>
+                                                <constraint firstItem="E3e-1F-Ocw" firstAttribute="leading" secondItem="9Ri-EJ-Gub" secondAttribute="trailing" constant="15" id="zjo-Zl-UHn"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="msgLabel" destination="lVP-FO-FIx" id="dza-Dk-fbz"/>
+                                            <outlet property="timeStamp" destination="9Ri-EJ-Gub" id="R8c-hP-LIh"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendMsgCell" rowHeight="91" id="Gne-9S-Qaq" customClass="FriendMessageCell" customModule="MyTalk" customModuleProvider="target">
@@ -318,14 +328,22 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9f-bt-pEn">
+                                                    <rect key="frame" x="137" y="75" width="27" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="t9f-bt-pEn" secondAttribute="bottom" constant="4" id="0PX-f6-0Gp"/>
                                                 <constraint firstItem="FYa-i9-S53" firstAttribute="top" secondItem="iDF-aP-aHg" secondAttribute="top" constant="-10" id="AOG-YY-PAR"/>
                                                 <constraint firstItem="NwN-TN-sza" firstAttribute="top" secondItem="1n5-hm-xeh" secondAttribute="top" constant="4" id="ApZ-4n-QJD"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rzb-SN-QgD" secondAttribute="trailing" constant="20" symbolic="YES" id="GGu-is-Lxx"/>
                                                 <constraint firstItem="NwN-TN-sza" firstAttribute="leading" secondItem="1n5-hm-xeh" secondAttribute="leading" constant="18" id="JWi-Cy-meW"/>
                                                 <constraint firstItem="FYa-i9-S53" firstAttribute="bottom" secondItem="iDF-aP-aHg" secondAttribute="bottom" constant="10" id="LAt-v2-TYP"/>
                                                 <constraint firstItem="Rzb-SN-QgD" firstAttribute="leading" secondItem="NwN-TN-sza" secondAttribute="trailing" constant="14" id="Oiy-Js-atM"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="t9f-bt-pEn" secondAttribute="trailing" constant="20" symbolic="YES" id="PB0-20-9zc"/>
                                                 <constraint firstItem="FYa-i9-S53" firstAttribute="trailing" secondItem="iDF-aP-aHg" secondAttribute="trailing" constant="10" id="Rfu-1Y-PVx"/>
                                                 <constraint firstItem="FYa-i9-S53" firstAttribute="top" secondItem="Rzb-SN-QgD" secondAttribute="bottom" constant="10" id="cPr-52-x5r"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="iDF-aP-aHg" secondAttribute="bottom" constant="3" id="coI-MU-oCo"/>
@@ -334,12 +352,14 @@
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="iDF-aP-aHg" secondAttribute="trailing" constant="65" id="lzt-L4-pYr"/>
                                                 <constraint firstItem="iDF-aP-aHg" firstAttribute="leading" secondItem="1n5-hm-xeh" secondAttribute="leadingMargin" constant="50" id="ucw-c4-Q0J"/>
                                                 <constraint firstItem="FYa-i9-S53" firstAttribute="leading" secondItem="iDF-aP-aHg" secondAttribute="leading" constant="-15" id="voV-Wi-I1R"/>
+                                                <constraint firstItem="t9f-bt-pEn" firstAttribute="leading" secondItem="FYa-i9-S53" secondAttribute="trailing" constant="15" id="ych-0f-9Py"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="msgLabel" destination="iDF-aP-aHg" id="Uwd-rD-hTL"/>
                                             <outlet property="nameLabel" destination="Rzb-SN-QgD" id="2pa-ws-QAW"/>
                                             <outlet property="profileImageView" destination="NwN-TN-sza" id="ANF-3L-blC"/>
+                                            <outlet property="timeStamp" destination="t9f-bt-pEn" id="bMx-On-olp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

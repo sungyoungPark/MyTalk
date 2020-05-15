@@ -11,6 +11,7 @@ import UIKit
 class MyMessageCell: UITableViewCell {
 
     @IBOutlet var msgLabel: UILabel!
+    @IBOutlet var timeStamp: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

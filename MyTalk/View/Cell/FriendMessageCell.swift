@@ -12,6 +12,7 @@ class FriendMessageCell: UITableViewCell {
 
     @IBOutlet var msgLabel: UILabel!
     
+    @IBOutlet var timeStamp: UILabel!
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     

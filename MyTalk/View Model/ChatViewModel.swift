@@ -21,6 +21,7 @@ class ChatViewModel{
     var isCreateChatRoom = Dynamic(true)
     
     var chatRoomUid = ""
+    var chatTimeStamp = ""   //채팅시간 기록
     
     var msg : String?
     var comments = Dynamic([[String:String]]())
@@ -42,6 +43,18 @@ class ChatViewModel{
     
     func sendMSG(){
         if msg != nil{  //아무것도 안적혀있으면 채팅 안됨
+            
+            //DateFormatter로 따로 뺄것
+            let formatterYMDDay = DateFormatter()
+            formatterYMDDay.locale = Locale(identifier: "Ko_kr")
+            formatterYMDDay.dateFormat = "yyyy년 MM월 dd일 EEEE"
+            let formatterHM = DateFormatter()
+            formatterHM.locale = Locale(identifier: "Ko_kr")
+            formatterHM.dateFormat = "a h시 mm분"
+            chatTimeStamp = formatterYMDDay.string(from: Date()) + "/" + formatterHM.string(from: Date())
+            print("timeStamp", chatTimeStamp)
+            
+            
             let roomInfo : Dictionary<String,Any> = ["users" :[uid: true,destinationUid:true]]
             if(chatRoomUid == ""){
                 print("채팅방 생성")
@@ -51,13 +64,13 @@ class ChatViewModel{
                 
             }else{
                 print("기존 채팅방 사용")
-                let value : Dictionary<String,Any> = ["comment": ["uid":uid!,"message": msg]]
+                let value : Dictionary<String,Any> = ["comment": ["uid":uid!,"message": msg,"timeStamp":chatTimeStamp]]
                 Database.database().reference().child("chatRooms").child(chatRoomUid).child("comments").childByAutoId().setValue(value)
                 getMsgList()
                 print("기존 채팅방 끝")
             }
         }
-        msg = nil
+       // msg = nil
     }
     
     
@@ -74,7 +87,7 @@ class ChatViewModel{
                         Database.database().reference().child("users/"+myEmail!+"/friendList/"+self.destinationEmail!+"/chatRoomUid").setValue(self.chatRoomUid)
                         Database.database().reference().child("users/"+self.destinationEmail!+"/friendList/"+myEmail!+"/chatRoomUid").setValue(self.chatRoomUid)
                         
-                        let value : Dictionary<String,Any> = ["comment": ["uid":self.uid!,"message": self.msg]]
+                        let value : Dictionary<String,Any> = ["comment": ["uid":self.uid!,"message": self.msg,"timeStamp":self.chatTimeStamp]]
                         Database.database().reference().child("chatRooms").child(self.chatRoomUid).child("comments").childByAutoId().setValue(value)
                         self.getMsgList()
                     }
@@ -93,9 +106,12 @@ class ChatViewModel{
             
             for item in datasnapshot.children.allObjects as! [DataSnapshot]{
                 let log = item.value as? [String:AnyObject]
-                let logUpdate = [log!["comment"]!["uid"]?.description:log!["comment"]!["message"]?.description]
+                let logUpdate = ["uid":log!["comment"]!["uid"]?.description,"message":log!["comment"]!["message"]?.description,
+                                 "timeStamp":log!["comment"]!["timeStamp"]?.description]
+               
                 self.comments.value.append(logUpdate as! [String : String])
             }
+            self.msg = nil
         }
     }
     

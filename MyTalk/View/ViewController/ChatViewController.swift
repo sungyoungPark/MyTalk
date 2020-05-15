@@ -123,16 +123,19 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if(viewModel.comments.value[indexPath.row].keys.first == viewModel.uid){
+        print(viewModel.comments.value[indexPath.row])
+        if(viewModel.comments.value[indexPath.row]["uid"] == viewModel.uid){  //나의 채팅 기록
             let cell = tv.dequeueReusableCell(withIdentifier: "myMsgCell", for: indexPath) as! MyMessageCell
-            cell.msgLabel.text = viewModel.comments.value[indexPath.row].values.first
+            cell.msgLabel.text = viewModel.comments.value[indexPath.row]["message"]
+            cell.timeStamp.text = viewModel.comments.value[indexPath.row]["timeStamp"]
             cell.msgLabel.numberOfLines = 0
             return cell
         }
         else{  //상대방이 채팅한 거에 대하여 구현
             let cell = tv.dequeueReusableCell(withIdentifier: "friendMsgCell", for: indexPath) as! FriendMessageCell
-        
-            cell.msgLabel.text = viewModel.comments.value[indexPath.row].values.first
+            
+            cell.msgLabel.text = viewModel.comments.value[indexPath.row]["message"]
+            cell.timeStamp.text = viewModel.comments.value[indexPath.row]["timeStamp"]
             cell.profileImageView.image = viewModel.destinationProfile
             cell.nameLabel.text = viewModel.destinationFriend.value.name
             
