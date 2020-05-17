@@ -66,7 +66,7 @@ class ChatViewModel{
                 
             }else{
                 print("기존 채팅방 사용")
-                let value : Dictionary<String,Any> = ["comment": ["uid":uid!,"message": msg,"timeStamp":chatTimeStamp]]
+                let value : Dictionary<String,Any> = ["comment": ["uid":uid!,"message": msg]]
                 Database.database().reference().child("chatRooms").child(chatRoomUid).child("comments").child(chatDayStamp+"/"+chatTimeStamp).childByAutoId().setValue(value)
                 getMsgList()
                 print("기존 채팅방 끝")
@@ -89,7 +89,7 @@ class ChatViewModel{
                         Database.database().reference().child("users/"+myEmail!+"/friendList/"+self.destinationEmail!+"/chatRoomUid").setValue(self.chatRoomUid)
                         Database.database().reference().child("users/"+self.destinationEmail!+"/friendList/"+myEmail!+"/chatRoomUid").setValue(self.chatRoomUid)
                         
-                        let value : Dictionary<String,Any> = ["comment": ["uid":self.uid!,"message": self.msg,"timeStamp":self.chatTimeStamp]]
+                        let value : Dictionary<String,Any> = ["comment": ["uid":self.uid!,"message": self.msg]]
                         Database.database().reference().child("chatRooms").child(self.chatRoomUid).child("comments").child(self.chatDayStamp+"/"+self.chatTimeStamp).childByAutoId().setValue(value)
                         self.getMsgList()
                     }
