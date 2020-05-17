@@ -362,6 +362,29 @@
                                             <outlet property="timeStamp" destination="t9f-bt-pEn" id="bMx-On-olp"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatDayCell" id="5rv-tq-hOc" customClass="ChatDayStampTableViewCell" customModule="MyTalk" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="169" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5rv-tq-hOc" id="PXs-Wk-m79">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhO-sE-Hpy">
+                                                    <rect key="frame" x="186" y="11.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vhO-sE-Hpy" firstAttribute="centerY" secondItem="PXs-Wk-m79" secondAttribute="centerY" id="ecE-W1-N1V"/>
+                                                <constraint firstItem="vhO-sE-Hpy" firstAttribute="centerX" secondItem="PXs-Wk-m79" secondAttribute="centerX" id="jFd-4v-zm1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="chatDayStamp" destination="vhO-sE-Hpy" id="czQ-rC-IGZ"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="ArU-HR-2Pu" id="hn2-cj-eKN"/>

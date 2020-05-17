@@ -123,7 +123,12 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(viewModel.comments.value[indexPath.row])
+        if (viewModel.comments.value[indexPath.row]["chatDayStamp"] != nil) {
+            let cell = tv.dequeueReusableCell(withIdentifier: "chatDayCell", for: indexPath) as! ChatDayStampTableViewCell
+            cell.chatDayStamp.text = viewModel.comments.value[indexPath.row]["chatDayStamp"]
+            return cell
+        }
+            
         if(viewModel.comments.value[indexPath.row]["uid"] == viewModel.uid){  //나의 채팅 기록
             let cell = tv.dequeueReusableCell(withIdentifier: "myMsgCell", for: indexPath) as! MyMessageCell
             cell.msgLabel.text = viewModel.comments.value[indexPath.row]["message"]

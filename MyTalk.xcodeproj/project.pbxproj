@@ -35,6 +35,7 @@
 		5BCF30E4244AF483004ECCB7 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF30E3244AF483004ECCB7 /* Dynamic.swift */; };
 		5BCF30E7244B0053004ECCB7 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF30E6244B0053004ECCB7 /* SignUpModel.swift */; };
 		5BD7C065245DDA0A000943DC /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD7C064245DDA0A000943DC /* ChatViewModel.swift */; };
+		5BF26D6F24712BBC00FE8F29 /* ChatDayStampTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF26D6E24712BBC00FE8F29 /* ChatDayStampTableViewCell.swift */; };
 		BC33912B2056796547275FB2 /* Pods_MyTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3E95D196398782585CBF82 /* Pods_MyTalk.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		5BCF30E3244AF483004ECCB7 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		5BCF30E6244B0053004ECCB7 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		5BD7C064245DDA0A000943DC /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		5BF26D6E24712BBC00FE8F29 /* ChatDayStampTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDayStampTableViewCell.swift; sourceTree = "<group>"; };
 		AB3E95D196398782585CBF82 /* Pods_MyTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31CD358C70D1B654C6A5410 /* Pods-MyTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTalk.debug.xcconfig"; path = "Target Support Files/Pods-MyTalk/Pods-MyTalk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,9 +157,8 @@
 		5B308718244DE9A5006CC5BF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				5BF26D6D247128C800FE8F29 /* for Chatting */,
 				5B308719244DE9BA006CC5BF /* MyFriendTableViewCell.swift */,
-				5B42CB5C2461E4CA004B0600 /* MyMessageCell.swift */,
-				5B42CB5E2461E4EB004B0600 /* FriendMessageCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -231,6 +232,16 @@
 				5BCF30DE244AE103004ECCB7 /* BindingTextField.swift */,
 			);
 			path = BindingTool;
+			sourceTree = "<group>";
+		};
+		5BF26D6D247128C800FE8F29 /* for Chatting */ = {
+			isa = PBXGroup;
+			children = (
+				5B42CB5C2461E4CA004B0600 /* MyMessageCell.swift */,
+				5B42CB5E2461E4EB004B0600 /* FriendMessageCell.swift */,
+				5BF26D6E24712BBC00FE8F29 /* ChatDayStampTableViewCell.swift */,
+			);
+			path = "for Chatting";
 			sourceTree = "<group>";
 		};
 		FDB34ACBF436CCC96B80D0AA /* Pods */ = {
@@ -415,6 +426,7 @@
 				5B09CB03243E2CE10057FCF9 /* AlertControllerService.swift in Sources */,
 				5BCF30DF244AE103004ECCB7 /* BindingTextField.swift in Sources */,
 				5B42CB5F2461E4EB004B0600 /* FriendMessageCell.swift in Sources */,
+				5BF26D6F24712BBC00FE8F29 /* ChatDayStampTableViewCell.swift in Sources */,
 				5B09CB00243E2C590057FCF9 /* SplashViewModel.swift in Sources */,
 				5B1B101D244F0C5A00402AFB /* ChatViewController.swift in Sources */,
 				5BD7C065245DDA0A000943DC /* ChatViewModel.swift in Sources */,
