@@ -67,7 +67,7 @@ class ChatViewModel{
             }else{
                 print("기존 채팅방 사용")
                 let value : Dictionary<String,Any> = ["comment": ["uid":uid!,"message": msg,"timeStamp":chatTimeStamp]]
-                Database.database().reference().child("chatRooms").child(chatRoomUid).child("comments").child(chatDayStamp).childByAutoId().setValue(value)
+                Database.database().reference().child("chatRooms").child(chatRoomUid).child("comments").child(chatDayStamp+"/"+chatTimeStamp).childByAutoId().setValue(value)
                 getMsgList()
                 print("기존 채팅방 끝")
             }
@@ -90,7 +90,7 @@ class ChatViewModel{
                         Database.database().reference().child("users/"+self.destinationEmail!+"/friendList/"+myEmail!+"/chatRoomUid").setValue(self.chatRoomUid)
                         
                         let value : Dictionary<String,Any> = ["comment": ["uid":self.uid!,"message": self.msg,"timeStamp":self.chatTimeStamp]]
-                        Database.database().reference().child("chatRooms").child(self.chatRoomUid).child("comments").child(self.chatDayStamp).childByAutoId().setValue(value)
+                        Database.database().reference().child("chatRooms").child(self.chatRoomUid).child("comments").child(self.chatDayStamp+"/"+self.chatTimeStamp).childByAutoId().setValue(value)
                         self.getMsgList()
                     }
                     
@@ -103,21 +103,48 @@ class ChatViewModel{
     }
     
     func getMsgList(){
-        var count = 0
         Database.database().reference().child("chatRooms").child(chatRoomUid).child("comments").observe(DataEventType.value) { (datasnapshot) in
             self.comments.value.removeAll()
-            for items in datasnapshot.children.allObjects as! [DataSnapshot]{
-                print("key",items.key)  //채팅한 날짜 적혀있음
-                let dayStamp = ["chatDayStamp":items.key]
+            for itemss in datasnapshot.children.allObjects as! [DataSnapshot]{
+                print("key",itemss.key)  //채팅한 날짜 적혀있음
+                let dayStamp = ["chatDayStamp":itemss.key]
                 self.comments.value.append(dayStamp)
-                for item in items.children.allObjects as! [DataSnapshot]{
-                    let log = item.value as? [String:AnyObject]
-                    let logUpdate = ["uid":log!["comment"]!["uid"]?.description,"message":log!["comment"]!["message"]?.description,
-                                     "timeStamp":log!["comment"]!["timeStamp"]?.description]
+                for items in itemss.children.allObjects as! [DataSnapshot]{
+                    print("key2",items.key)  //채팅한 시간 적혀있음
+                    let timeStamp = items.key
+                    var latestChatPersonUid = ""
+                    var latestChatLog = [String:String]()
                     
-                    self.comments.value.append(logUpdate as! [String : String])
+                    for item in items.children.allObjects as! [DataSnapshot]{
+                        let log = item.value as? [String:AnyObject]
+                        let logUpdate = ["uid":log!["comment"]!["uid"]?.description,"message":log!["comment"]!["message"]?.description]
+                        
+                        if latestChatPersonUid == ""{  //처음일때
+                            latestChatLog = logUpdate as! [String : String]
+                            latestChatPersonUid = log!["comment"]!["uid"]!.description
+                        }
+                        else{ //처음이 아니면
+                            if (latestChatPersonUid != log!["comment"]!["uid"]?.description){ //같은 사람이 아니면
+                                latestChatLog.updateValue(timeStamp, forKey: "timeStamp")
+                                self.comments.value.append(latestChatLog)  //이전 기록을 추가
+                                // 기록 저장
+                                latestChatLog = logUpdate as! [String : String]
+                                latestChatPersonUid = log!["comment"]!["uid"]!.description
+                            }
+                            else{  //같은 사람이면
+                                self.comments.value.append(latestChatLog)  //이전 기록을 추가
+                                latestChatLog = logUpdate as! [String : String]
+                            }
+                            
+                        }
+   
+                       // self.comments.value.append(logUpdate as! [String : String])
+                    }
+                    latestChatLog.updateValue(timeStamp, forKey: "timeStamp")
+                    self.comments.value.append(latestChatLog)  //이전 기록을 추가
+                    
+                    
                 }
-                
             }
             self.msg = nil
         }
