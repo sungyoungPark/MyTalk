@@ -36,6 +36,7 @@
 		5BCF30E7244B0053004ECCB7 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF30E6244B0053004ECCB7 /* SignUpModel.swift */; };
 		5BD7C065245DDA0A000943DC /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD7C064245DDA0A000943DC /* ChatViewModel.swift */; };
 		5BF26D6F24712BBC00FE8F29 /* ChatDayStampTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF26D6E24712BBC00FE8F29 /* ChatDayStampTableViewCell.swift */; };
+		5BFF3FFB24745E6300527A81 /* ContinuousFriendMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF3FFA24745E6300527A81 /* ContinuousFriendMessageCell.swift */; };
 		BC33912B2056796547275FB2 /* Pods_MyTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3E95D196398782585CBF82 /* Pods_MyTalk.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		5BCF30E6244B0053004ECCB7 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		5BD7C064245DDA0A000943DC /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		5BF26D6E24712BBC00FE8F29 /* ChatDayStampTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDayStampTableViewCell.swift; sourceTree = "<group>"; };
+		5BFF3FFA24745E6300527A81 /* ContinuousFriendMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousFriendMessageCell.swift; sourceTree = "<group>"; };
 		AB3E95D196398782585CBF82 /* Pods_MyTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31CD358C70D1B654C6A5410 /* Pods-MyTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTalk.debug.xcconfig"; path = "Target Support Files/Pods-MyTalk/Pods-MyTalk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -240,6 +242,7 @@
 				5B42CB5C2461E4CA004B0600 /* MyMessageCell.swift */,
 				5B42CB5E2461E4EB004B0600 /* FriendMessageCell.swift */,
 				5BF26D6E24712BBC00FE8F29 /* ChatDayStampTableViewCell.swift */,
+				5BFF3FFA24745E6300527A81 /* ContinuousFriendMessageCell.swift */,
 			);
 			path = "for Chatting";
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				5B4BE22124398FEB00A43683 /* SplashViewController.swift in Sources */,
 				5BCE71DD244CD5C300DDC579 /* MyFriendViewModel.swift in Sources */,
 				5BAC90F42445F749002092C3 /* SignUpViewController.swift in Sources */,
+				5BFF3FFB24745E6300527A81 /* ContinuousFriendMessageCell.swift in Sources */,
 				5BCF30E7244B0053004ECCB7 /* SignUpModel.swift in Sources */,
 				5B4BE21D24398FEB00A43683 /* AppDelegate.swift in Sources */,
 				5BAC90F924461C11002092C3 /* SignUpViewModel.swift in Sources */,

@@ -117,11 +117,12 @@ class ChatViewModel{
                     
                     for item in items.children.allObjects as! [DataSnapshot]{
                         let log = item.value as? [String:AnyObject]
-                        let logUpdate = ["uid":log!["comment"]!["uid"]?.description,"message":log!["comment"]!["message"]?.description]
+                        let logUpdate = ["message":log!["comment"]!["message"]?.description]
                         
                         if latestChatPersonUid == ""{  //처음일때
                             latestChatLog = logUpdate as! [String : String]
                             latestChatPersonUid = log!["comment"]!["uid"]!.description
+                            latestChatLog.updateValue(latestChatPersonUid, forKey: "uid")
                         }
                         else{ //처음이 아니면
                             if (latestChatPersonUid != log!["comment"]!["uid"]?.description){ //같은 사람이 아니면
@@ -130,15 +131,27 @@ class ChatViewModel{
                                 // 기록 저장
                                 latestChatLog = logUpdate as! [String : String]
                                 latestChatPersonUid = log!["comment"]!["uid"]!.description
+                                if latestChatPersonUid == self.uid{
+                                    latestChatLog.updateValue(self.uid!, forKey: "uid")
+                                }
+                                else{
+                                    latestChatLog.updateValue(latestChatPersonUid, forKey: "uid")
+                                }
                             }
                             else{  //같은 사람이면
                                 self.comments.value.append(latestChatLog)  //이전 기록을 추가
                                 latestChatLog = logUpdate as! [String : String]
+                                if latestChatPersonUid == self.uid{
+                                    latestChatLog.updateValue(self.uid!, forKey: "uid")
+                                }
+                                else{
+                                    latestChatLog.updateValue("otherContinue", forKey: "uid")
+                                }
                             }
                             
                         }
-   
-                       // self.comments.value.append(logUpdate as! [String : String])
+                        
+                        // self.comments.value.append(logUpdate as! [String : String])
                     }
                     latestChatLog.updateValue(timeStamp, forKey: "timeStamp")
                     self.comments.value.append(latestChatLog)  //이전 기록을 추가

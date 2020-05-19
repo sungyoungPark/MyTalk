@@ -38,7 +38,7 @@ class ChatViewController: UIViewController {
         navigationItem.title = viewModel.destinationFriend.value.name  //채팅방 이름 설정
         viewModel.findChatRoom()
         bindViewModel()
-       
+        
         //viewModel.checkChatRoom()
     }
     
@@ -128,7 +128,16 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
             cell.chatDayStamp.text = viewModel.comments.value[indexPath.row]["chatDayStamp"]
             return cell
         }
+        
+        if(viewModel.comments.value[indexPath.row]["uid"] == "otherContinue"){  //연속된 채팅 기록
+            let cell = tv.dequeueReusableCell(withIdentifier: "ContinuousFriendMsgCell", for: indexPath) as! ContinuousFriendMessageCell
             
+            cell.msgLabel.text = viewModel.comments.value[indexPath.row]["message"]
+            cell.timeStamp.text = viewModel.comments.value[indexPath.row]["timeStamp"]
+            
+            return cell
+        }
+        
         if(viewModel.comments.value[indexPath.row]["uid"] == viewModel.uid){  //나의 채팅 기록
             let cell = tv.dequeueReusableCell(withIdentifier: "myMsgCell", for: indexPath) as! MyMessageCell
             cell.msgLabel.text = viewModel.comments.value[indexPath.row]["message"]
@@ -146,7 +155,7 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
             
             return cell
         }
-       
+        
         // return cell
     }
     
@@ -158,11 +167,11 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
 
 extension ChatViewController : UITextFieldDelegate{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-          view.endEditing(true)
-      }
-      
-      func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         msgTextField.resignFirstResponder()
-          return true
-      }
+        return true
+    }
 }

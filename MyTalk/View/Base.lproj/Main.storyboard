@@ -362,8 +362,50 @@
                                             <outlet property="timeStamp" destination="t9f-bt-pEn" id="bMx-On-olp"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContinuousFriendMsgCell" rowHeight="59" id="nVq-SN-0P3" customClass="ContinuousFriendMessageCell" customModule="MyTalk" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="169" width="414" height="59"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nVq-SN-0P3" id="Nnq-vT-pAC">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_gray" translatesAutoresizingMaskIntoConstraints="NO" id="WrD-Yu-9UN">
+                                                    <rect key="frame" x="55" y="14.5" width="67" height="40.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4M-0H-rEJ">
+                                                    <rect key="frame" x="70" y="24.5" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qty-m3-qQI">
+                                                    <rect key="frame" x="137" y="43" width="27" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Qty-m3-qQI" firstAttribute="leading" secondItem="WrD-Yu-9UN" secondAttribute="trailing" constant="15" id="6XV-LL-Myh"/>
+                                                <constraint firstItem="WrD-Yu-9UN" firstAttribute="bottom" secondItem="c4M-0H-rEJ" secondAttribute="bottom" constant="10" id="AMw-Xx-PfD"/>
+                                                <constraint firstAttribute="bottom" secondItem="Qty-m3-qQI" secondAttribute="bottom" constant="4" id="No4-UX-YQm"/>
+                                                <constraint firstItem="WrD-Yu-9UN" firstAttribute="leading" secondItem="c4M-0H-rEJ" secondAttribute="leading" constant="-15" id="Ou7-Fq-lTj"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Qty-m3-qQI" secondAttribute="trailing" constant="20" symbolic="YES" id="Qi5-Rh-gdQ"/>
+                                                <constraint firstItem="WrD-Yu-9UN" firstAttribute="top" secondItem="c4M-0H-rEJ" secondAttribute="top" constant="-10" id="R5Q-oh-gew"/>
+                                                <constraint firstItem="c4M-0H-rEJ" firstAttribute="top" secondItem="Nnq-vT-pAC" secondAttribute="top" constant="24.5" id="TWk-b3-FSI"/>
+                                                <constraint firstItem="c4M-0H-rEJ" firstAttribute="leading" secondItem="Nnq-vT-pAC" secondAttribute="leadingMargin" constant="50" id="cQI-Au-5B4"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="c4M-0H-rEJ" secondAttribute="bottom" constant="3" id="h2o-g0-ORb"/>
+                                                <constraint firstItem="WrD-Yu-9UN" firstAttribute="trailing" secondItem="c4M-0H-rEJ" secondAttribute="trailing" constant="10" id="i14-Zf-Md8"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="c4M-0H-rEJ" secondAttribute="trailing" constant="65" id="j9x-De-ia7"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="msgLabel" destination="c4M-0H-rEJ" id="YKe-dF-ti5"/>
+                                            <outlet property="timeStamp" destination="Qty-m3-qQI" id="gx8-q1-hSj"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatDayCell" id="5rv-tq-hOc" customClass="ChatDayStampTableViewCell" customModule="MyTalk" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="169" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="228" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5rv-tq-hOc" id="PXs-Wk-m79">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
