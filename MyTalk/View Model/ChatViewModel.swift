@@ -106,11 +106,11 @@ class ChatViewModel{
         Database.database().reference().child("chatRooms").child(chatRoomUid).child("comments").observe(DataEventType.value) { (datasnapshot) in
             self.comments.value.removeAll()
             for itemss in datasnapshot.children.allObjects as! [DataSnapshot]{
-                print("key",itemss.key)  //채팅한 날짜 적혀있음
+               // print("key",itemss.key)  //채팅한 날짜 적혀있음
                 let dayStamp = ["chatDayStamp":itemss.key]
                 self.comments.value.append(dayStamp)
                 for items in itemss.children.allObjects as! [DataSnapshot]{
-                    print("key2",items.key)  //채팅한 시간 적혀있음
+                    //print("key2",items.key)  //채팅한 시간 적혀있음
                     let timeStamp = items.key
                     var latestChatPersonUid = ""
                     var latestChatLog = [String:String]()
