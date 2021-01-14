@@ -24,4 +24,8 @@
 <img src="appImage/chatMain.png" width="250" height="450">
 <figcaption>⬅︎ 채팅 메인</figcaption>
     </figure>
+     <figure>
+<img src="appImage/request.png" width="250" height="450">
+<figcaption>⬅︎ 친구 요청</figcaption>
+    </figure>
 </div>
