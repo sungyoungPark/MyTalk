@@ -13,11 +13,15 @@
 <figcaption>⬅︎ 런치 이미지</figcaption>
 </figure>
   <figure>
+<img src="appImage/register.png" width="250" height="450">
+<figcaption>⬅︎ 회원가입 </figcaption>
+    </figure>
+        <figure>
 <img src="appImage/login.png" width="250" height="450">
 <figcaption>⬅︎ 로그인 화면</figcaption>
-    </figure>
+        </figure>
       <figure>
 <img src="appImage/chatMain.png" width="250" height="450">
 <figcaption>⬅︎ 채팅 메인</figcaption>
-        </figure>
+    </figure>
 </div>
