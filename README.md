@@ -26,6 +26,14 @@
     </figure>
      <figure>
 <img src="appImage/addFriend.png" width="250" height="450">
-<figcaption>⬅︎ 친구 요청</figcaption>
+<figcaption>⬅︎ 친구 추가</figcaption>
+    </figure>
+       <figure>
+<img src="appImage/chat1.png" width="250" height="450">
+<figcaption>⬅︎ 채팅1</figcaption>
+    </figure>
+       <figure>
+<img src="appImage/chat2.png" width="250" height="450">
+<figcaption>⬅︎ 채팅2</figcaption>
     </figure>
 </div>
